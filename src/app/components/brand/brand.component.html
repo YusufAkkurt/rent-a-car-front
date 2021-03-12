@@ -1,0 +1,14 @@
+<table class="table table-hover table-striped mt-4 border">
+  <thead>
+  <tr>
+    <th class="text-center" style="width: 50px">#</th>
+    <th>Marka</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let brand of brands">
+    <th class="text-center">{{ brand.id }}</th>
+    <td>{{ brand.name }}</td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<table class="table table-hover table-striped border mt-4">
+   <thead>
+   <tr>
+      <th class="text-center" style="width: 50px">#</th>
+      <th>Araba</th>
+      <th>Müşteri</th>
+      <th>Kiralanan Tarih</th>
+      <th>Teslim Tarihi</th>
+   </tr>
+   </thead>
+   <tbody>
+      <tr *ngFor="let rental of rentals">
+         <th class="text-center">{{ rental.id }}</th>
+         <td>{{ rental.carBrand }} {{ rental.carModel }}</td>
+         <td>{{ rental.customerFirstName }} {{ rental.customerLastName }}</td>
+         <td>{{ rental.rentDate | date:'dd.MM.y h:mm:ss' }}</td>
+         <td>
+            <span *ngIf="rental.returnDate">{{ rental.returnDate | date:'d.m.y h:mm:ss' }}</span>
+            <span *ngIf="!rental.returnDate">Teslim tarihi bilinmiyor</span>
+         </td>
+      </tr>
+   </tbody>
+</table>

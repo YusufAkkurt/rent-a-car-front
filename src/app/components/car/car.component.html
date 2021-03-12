@@ -1,0 +1,20 @@
+<table class="table table-hover table-striped mt-4 border">
+  <thead>
+  <tr>
+    <th class="text-center" style="width: 50px">#</th>
+    <th>Marka</th>
+    <th>Renk</th>
+    <th>Model Yılı</th>
+    <th>Günlük Ücret</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of cars">
+    <th class="text-center">{{ car.id }}</th>
+    <td>{{ car.brandName }} {{ car.description }}</td>
+    <td>{{ car.colorName }}</td>
+    <td>{{ car.modelYear }}</td>
+    <td>{{ car.dailyPrice }}</td>
+  </tr>
+  </tbody>
+</table>

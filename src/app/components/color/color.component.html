@@ -1,0 +1,14 @@
+<table class="table table-hover table-striped mt-4 border">
+  <thead>
+  <tr>
+    <th class="text-center" style="width: 50px">#</th>
+    <th>Renk</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let color of colors">
+    <th class="text-center">{{ color.id }}</th>
+    <td>{{ color.name }}</td>
+  </tr>
+  </tbody>
+</table>
