@@ -1,25 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
-  <div class="container">
+   <div class="container">
 
-    <a class="navbar-brand" routerLink="rentals"><i class="bi-bullseye me-1"></i> {{ title }}</a>
+      <a class="navbar-brand" routerLink="rentals"><i class="bi-bullseye me-1"></i> {{ title }}</a>
 
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+         <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <div class="navbar-nav mb-2 mb-lg-0">
-          <a class="nav-item nav-link" routerLink="rentals" routerLinkActive="active">Anasayfa</a>
-          <a class="nav-item nav-link" href="javascript:void(0)">Hakkımızda</a>
-          <a class="nav-item nav-link" href="javascript:void(0)">İletişim</a>
+      <div class="collapse navbar-collapse" id="navbarContent">
+         <div class="navbar-nav mb-2 mb-lg-0">
+            <a class="nav-item nav-link" routerLink="cars" routerLinkActive="active">Arabalar</a>
+            <a class="nav-item nav-link" routerLink="rentals" routerLinkActive="active">Kiralamalar</a>
+            <a class="nav-item nav-link" routerLink="customers" routerLinkActive="active">Müşteriler</a>
+            <a class="nav-item nav-link" routerLink="brands" routerLinkActive="active">Markalar</a>
+            <a class="nav-item nav-link" routerLink="colors" routerLinkActive="active">Renkler</a>
+         </div>
+
+         <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <a class="btn btn-primary rounded-pill px-4" href="javascript:void(0)">
+               <i class="bi-person-fill me-1"></i> Giriş Yap
+            </a>
+         </div>
       </div>
 
-      <div class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <a class="btn btn-primary rounded-pill px-4" href="javascript:void(0)">
-            <i class="bi-person-fill me-1"></i> Giriş Yap
-          </a>
-      </div>
-    </div>
-
-  </div>
+   </div>
 </nav>

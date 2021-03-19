@@ -1,14 +1,22 @@
-<table class="table table-hover table-striped mt-4 border">
-  <thead>
-  <tr>
-    <th class="text-center" style="width: 50px">#</th>
-    <th>Marka</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let brand of brands">
-    <th class="text-center">{{ brand.id }}</th>
-    <td>{{ brand.name }}</td>
-  </tr>
-  </tbody>
-</table>
+<div class="row">
+   <div class="col-lg-9">
+      <app-car></app-car>
+   </div>
+   <div class="col-lg-3">
+      <div class="list-group rounded-0 mt-4">
+         <div class="list-group-item fw-bold" style="background-color: #DDD">
+            <i class="bi-card-list"></i> {{ title }}
+         </div>
+
+         <button routerLink="/brands" (click)="resetCurrentBrandId()" class="{{ listAllBrandCss }}"
+                 style="background-color: #EEE">
+            Tümünü Listele
+         </button>
+
+         <a *ngFor="let brand of brands" routerLink="/brands/{{ brand.id }}"
+                 (click)="setCurrentBrand(brand.id)" [class]="getCurrentBrandClass(brand.id)">
+            {{ brand.name }}
+         </a>
+      </div>
+   </div>
+</div>

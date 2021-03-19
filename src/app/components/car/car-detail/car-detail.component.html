@@ -1,0 +1,31 @@
+<div class="row mt-4">
+   <div class="col-lg-6">
+      <div id="indicators" class="carousel slide" data-bs-ride="carousel">
+
+         <div class="carousel-inner">
+            <div *ngFor="let carImage of carImages" class="carousel-item active">
+               <img src="{{ imageBaseUrl + carImage.imagePath }}" class="d-block w-100" alt="">
+            </div>
+         </div>
+
+         <button class="carousel-control-prev" data-bs-target="#indicators" data-bs-slide="prev">
+            <span class="bi-arrow-left" style="font-size: 25px;"></span>
+         </button>
+         <button class="carousel-control-next" data-bs-target="#indicators" data-bs-slide="next">
+            <span class="bi-arrow-right" style="font-size: 25px;"></span>
+         </button>
+
+      </div>
+   </div>
+
+   <div *ngIf="carDetail" class="col-lg-6 my-auto">
+      <h1>{{ carDetail.brandName }}</h1>
+      <hr style="width: 25%; opacity: 1; height: 2px">
+      <ul class="list-unstyled">
+         <li><h5><b>Model Name: </b>{{ carDetail.description }}, {{ carDetail.brandName }}</h5></li>
+         <li><h5><b>Color Name: </b>{{ carDetail.colorName }}</h5></li>
+         <li><h5><b>Model Year: </b>{{ carDetail.modelYear }}</h5></li>
+         <li><h5><b>Günlük Ücret: </b>{{carDetail.dailyPrice }} ₺</h5></li>
+      </ul>
+   </div>
+</div>
