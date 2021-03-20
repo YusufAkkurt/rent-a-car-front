@@ -19,32 +19,11 @@ export class CarComponent implements OnInit {
    }
 
    ngOnInit(): void {
-      this.activatedRoute.params.subscribe((params) => {
-         if (params['brandId']) {
-            return this.getCarsByBrandId(params['brandId']);
-         }
-         if (params['colorId']) {
-            return this.getCarsByColorId(params['colorId']);
-         }
-
-         return this.getCars();
-      });
+      return this.getCars();
    }
 
    getCars() {
       this.carService.getCars().subscribe((response) => {
-         this.carDetails = response.data;
-      });
-   }
-
-   getCarsByBrandId(brandId: number) {
-      this.carService.getCarsByBrandId(brandId).subscribe((response) => {
-         this.carDetails = response.data;
-      });
-   }
-
-   getCarsByColorId(colorId: number) {
-      this.carService.getCarsByColorId(colorId).subscribe((response) => {
          this.carDetails = response.data;
       });
    }
