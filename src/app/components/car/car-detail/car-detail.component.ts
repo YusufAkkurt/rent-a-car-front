@@ -45,4 +45,11 @@ export class CarDetailComponent implements OnInit {
          this.carImages = response.data;
       });
    }
+
+   getCurrentSliderImageClass(sliderImage: CarImage): string{
+      if (this.carImages[0] === sliderImage)
+         return 'carousel-item active'
+
+      return 'carousel-item'
+   }
 }

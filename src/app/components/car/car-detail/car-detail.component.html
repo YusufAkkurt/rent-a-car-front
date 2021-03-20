@@ -3,8 +3,8 @@
       <div id="indicators" class="carousel slide" data-bs-ride="carousel">
 
          <div class="carousel-inner">
-            <div *ngFor="let carImage of carImages" class="carousel-item active">
-               <img src="{{ imageBaseUrl + carImage.imagePath }}" class="d-block w-100" alt="">
+            <div *ngFor="let carImage of carImages" [class]="getCurrentSliderImageClass(carImage)">
+               <img src="{{ imageBaseUrl + carImage.imagePath }}" class="d-block w-100">
             </div>
          </div>
 
