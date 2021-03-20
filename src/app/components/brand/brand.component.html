@@ -2,8 +2,12 @@
    <div class="col-lg-9">
       <app-car></app-car>
    </div>
-   <div class="col-lg-3">
-      <div class="list-group rounded-0 mt-4">
+   <div class="col-lg-3 mt-4">
+
+      <input type="text" [(ngModel)]="filterText" class="form-control rounded-0 mb-3"
+             placeholder="Marka Ara..." autocomplete="off" >
+
+      <div class="list-group rounded-0">
          <div class="list-group-item fw-bold" style="background-color: #DDD">
             <i class="bi-card-list"></i> {{ title }}
          </div>
@@ -13,8 +17,8 @@
             Tümünü Listele
          </button>
 
-         <a *ngFor="let brand of brands" routerLink="/brands/{{ brand.id }}"
-                 (click)="setCurrentBrand(brand.id)" [class]="getCurrentBrandClass(brand.id)">
+         <a *ngFor="let brand of brands | brandFilter: filterText" routerLink="/brands/{{ brand.id }}"
+            [class]="getCurrentBrandClass(brand.id)" (click)="setCurrentBrand(brand.id)">
             {{ brand.name }}
          </a>
       </div>

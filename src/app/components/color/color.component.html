@@ -2,8 +2,12 @@
    <div class="col-lg-9">
       <app-car></app-car>
    </div>
-   <div class="col-lg-3">
-      <div class="list-group rounded-0 mt-4">
+   <div class="col-lg-3 mt-4">
+
+      <input type="text" [(ngModel)]="filterText" class="form-control rounded-0 mb-3"
+             placeholder="Renk Ara..." autocomplete="off" >
+
+      <div class="list-group rounded-0">
          <div class="list-group-item fw-bold" style="background-color: #DDD">
             <i class="bi-card-list"></i> {{ title }}
          </div>
@@ -13,7 +17,7 @@
            Tümünü Listele
          </button>
 
-         <button *ngFor="let color of colors" routerLink="/colors/{{ color.id }}"
+         <button *ngFor="let color of colors | colorFilter: filterText" routerLink="/colors/{{ color.id }}"
                  (click)="setCurrentColor(color.id)" [class]="getCurrentColorClass(color.id)">
             {{ color.name }}
          </button>

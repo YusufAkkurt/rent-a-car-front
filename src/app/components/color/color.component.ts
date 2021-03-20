@@ -13,6 +13,7 @@ export class ColorComponent implements OnInit {
    listAllBrandCss: string = 'text-start list-group-item';
    colors: Color[] = [];
    currentColorId: number = 0;
+   filterText: string = '';
 
    constructor(private colorService: ColorService) {
    }
@@ -29,6 +30,7 @@ export class ColorComponent implements OnInit {
 
    setCurrentColor(colorId: number) {
       this.currentColorId = colorId;
+      this.filterText = '';
    }
 
    getCurrentColorClass(colorId: number): string {

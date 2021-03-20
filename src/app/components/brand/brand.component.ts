@@ -10,9 +10,10 @@ import { Brand } from '../../models/brand';
 export class BrandComponent implements OnInit {
 
    title: string = 'Markalar';
-   listAllBrandCss: string = "text-start list-group-item";
+   listAllBrandCss: string = 'text-start list-group-item';
    brands: Brand[] = [];
    currentBrandId: number = 0;
+   filterText: string = '';
 
    constructor(private brandService: BrandService) {
    }
@@ -29,17 +30,18 @@ export class BrandComponent implements OnInit {
 
    setCurrentBrand(brandId: number) {
       this.currentBrandId = brandId;
+      this.filterText = '';
    }
 
    getCurrentBrandClass(brandId: number): string {
-      if (this.currentBrandId == brandId) {
-         return 'list-group-item list-group-item-action active';
+      if (this.currentBrandId !== brandId) {
+         return 'list-group-item list-group-item-action';
       }
 
-      return 'list-group-item list-group-item-action';
+      return 'list-group-item list-group-item-action active';
    }
 
-   resetCurrentBrandId(){
-      this.currentBrandId = 0
+   resetCurrentBrandId() {
+      this.currentBrandId = 0;
    }
 }
