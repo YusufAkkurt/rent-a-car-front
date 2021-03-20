@@ -1,0 +1,19 @@
+input:focus{
+   border-color: #0D6EFD;
+   box-shadow: none;
+}
+
+select{
+   cursor: pointer;
+   transition: all .2s;
+}
+
+select:hover {
+   background-color: #EEEEEE;
+}
+
+select:focus {
+   border-color: #0D6EFD;
+   box-shadow: none;
+   background-color: transparent;
+}
