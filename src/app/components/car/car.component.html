@@ -26,28 +26,6 @@
    </div>
 
    <div class="col-lg-3">
-      <div class="mb-3">
-         <select class="form-control rounded-0" [(ngModel)]="brandFilter">
-            <option value="">- - Marka Seçiniz - -</option>
-
-            <option *ngFor="let brand of brands" value="{{ brand.id }}">
-               {{ brand.name }}
-            </option>
-         </select>
-      </div>
-
-      <div class="mb-3">
-         <select class="form-control rounded-0" [(ngModel)]="colorFilter">
-            <option value="">- - Renk Seçiniz - -</option>
-
-            <option *ngFor="let color of colors" value="{{ color.id }}">
-               {{ color.name }}
-            </option>
-         </select>
-      </div>
-
-      <button class="btn btn-primary rounded-0 float-end">
-         <i class="bi-search me-1"></i> Filtrele
-      </button>
+      <app-car-filter></app-car-filter>
    </div>
 </div>
