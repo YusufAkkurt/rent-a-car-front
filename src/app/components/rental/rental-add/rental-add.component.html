@@ -1,0 +1,20 @@
+<div class="row mt-4">
+   <div class="col-lg-6">
+      <div class="card">
+         <div class="card-header fw-bold">Dönüş Tarihini Seç</div>
+         <div class="card-body">
+            <div class="row">
+               <div class="col-lg-9">
+                  <input type="datetime-local" class="form-control" [(ngModel)]="returnDate">
+               </div>
+
+               <div class="col-lg-3 d-grid">
+                  <button [class]="getNextButtonClass()" (click)="createRentableCar()">
+                     <i class="bi-arrow-right me-1"></i> İleri
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
