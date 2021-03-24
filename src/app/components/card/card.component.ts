@@ -5,6 +5,7 @@ import { RentableCarService } from '../../services/rentable-car.service';
 import { RentableCar } from '../../models/rentableCar';
 import { RentalService } from '../../services/rental.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
    selector: 'app-card',
@@ -28,7 +29,8 @@ export class CardComponent implements OnInit {
    constructor(private cardService: CardService,
                private rentalService: RentalService,
                private rentableCarService: RentableCarService,
-               private router: Router) {
+               private router: Router,
+               private toastrService: ToastrService) {
    }
 
    ngOnInit(): void {
@@ -44,17 +46,18 @@ export class CardComponent implements OnInit {
 
       this.cardService.add(this.card).subscribe(response => {
          if (!response.success) {
-            return console.log(response.message);
+            this.toastrService.error(response.message);
+         } else {
+            // @ts-ignore
+            this.rentalService.add(this.getRentableCar()).subscribe(response => {
+               if (!response.success) {
+                  this.toastrService.error(response.message);
+               } else {
+                  this.toastrService.success(response.message);
+                  this.router.navigate(['/rentals']);
+               }
+            });
          }
-
-         // @ts-ignore
-         this.rentalService.add(this.getRentableCar()).subscribe(response => {
-            if (!response.success)
-               return console.log(response.message)
-
-            console.log(response.message)
-            this.router.navigate(['/rentals'])
-         });
       });
    }
 
