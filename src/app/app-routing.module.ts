@@ -9,6 +9,7 @@ import { CarComponent } from './components/car/car.component';
 import { RentalAddComponent } from './components/rental/rental-add/rental-add.component';
 import { CardComponent } from './components/card/card.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
 
 const routes: Routes = [
    { path: 'rentals', component: RentalComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
    { path: 'brands/add', component: BrandAddComponent },
    { path: 'brands/:brandId', component: BrandComponent },
    { path: 'colors', component: ColorComponent },
+   { path: 'colors/add', component: ColorAddComponent },
    { path: 'colors/:colorId', component: ColorComponent },
    { path: 'cards', component: CardComponent },
    { path: '**', redirectTo: 'cars', pathMatch: 'full' }
