@@ -5,18 +5,19 @@
          <tr>
             <th class="text-center" style="width: 50px">#</th>
             <th>Marka</th>
-            <th>Renk</th>
-            <th>Model Yılı</th>
-            <th>Günlük Ücret</th>
+            <th></th>
          </tr>
          </thead>
          <tbody>
-         <tr *ngFor="let car of carDetails" routerLink="/cars/detail/{{ car.id }}">
-            <th class="text-center">{{ car.id }}</th>
-            <td>{{ car.brandName }} {{ car.description }}</td>
-            <td>{{ car.colorName }}</td>
-            <td>{{ car.modelYear }}</td>
-            <td>{{ car.dailyPrice }}</td>
+         <tr *ngFor="let color of colors | brandFilter: colorFilterText">
+            <th class="text-center">{{ color.id }}</th>
+            <td>{{ color.name }}</td>
+            <td class="text-end">
+               <button class="btn btn-sm btn-primary rounded-0 px-4"
+                       routerLink="/colors/update/{{ color.id }}">
+                  <i class="bi-pencil me-1"></i> GÜNCELLE
+               </button>
+            </td>
          </tr>
          </tbody>
       </table>
@@ -24,28 +25,12 @@
 
    <div class="col-lg-3">
 
-      <div class="d-grid mb-3">
-         <button class="btn btn-primary rounded-0" routerLink="/colors/add">
-            <i class="bi-plus-square me-1"></i> Yeni Renk Ekle
-         </button>
-      </div>
-
       <input type="text" [(ngModel)]="colorFilterText" class="form-control rounded-0 mb-3"
              placeholder="Renk Ara..." autocomplete="off">
 
-      <div class="list-group rounded-0">
-         <div class="list-group-item fw-bold" style="background-color: #DDD">
-            <i class="bi-card-list"></i> {{ title }}
-         </div>
-
-         <button routerLink="/colors" (click)="resetCurrentColor()" class="{{ listAllBrandCss }}"
-                 style="background-color: #EEE">
-            Tümünü Listele
-         </button>
-
-         <button *ngFor="let color of colors | colorFilter: colorFilterText" routerLink="/colors/{{ color.id }}"
-                 (click)="setCurrentColor(color.id)" [class]="getCurrentColorClass(color.id)">
-            {{ color.name }}
+      <div class="d-grid">
+         <button class="btn btn-primary rounded-0" routerLink="/colors/add">
+            <i class="bi-plus-square me-1"></i> Yeni Renk Ekle
          </button>
       </div>
    </div>

@@ -11,6 +11,7 @@
             <th>Renk</th>
             <th>Model Yılı</th>
             <th>Günlük Ücret</th>
+            <th class="text-center"><i class="bi-pencil me-1"></i></th>
          </tr>
          </thead>
          <tbody>
@@ -20,6 +21,12 @@
             <td>{{ car.colorName }}</td>
             <td>{{ car.modelYear }}</td>
             <td>{{ car.dailyPrice }}</td>
+            <td class="text-center">
+               <button class="btn btn-sm btn-primary rounded-0"
+                       routerLink="/cars/update/{{ car.id }}">
+                  <i class="bi-pencil me-1"></i>
+               </button>
+            </td>
          </tr>
          </tbody>
       </table>

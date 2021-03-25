@@ -3,10 +3,10 @@
 
       <div class="card rounded-0">
          <div class="card-header fw-bold">
-            <i class="bi-plus-square me-1"></i> Yeni Araba Ekle
+            <i class="bi-save me-1"></i> Araba Güncelle
          </div>
          <div class="card-body">
-            <form autocomplete="off" [formGroup]="carAddForm" (ngSubmit)="add()">
+            <form autocomplete="off" *ngIf="car" [formGroup]="carUpdateForm" (ngSubmit)="update()">
 
                <div class="form-floating mb-3">
                   <select class="form-select" id="brands" formControlName="brandId">
@@ -50,7 +50,7 @@
 
                <div class="text-end">
                   <button type="submit" class="btn btn-primary rounded-0 px-4 fw-bold">
-                     <i class="bi-plus-square me-1"></i> Ekle
+                     <i class="bi-save2 me-1"></i> Güncelle
                   </button>
                </div>
             </form>

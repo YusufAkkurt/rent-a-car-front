@@ -5,18 +5,19 @@
          <tr>
             <th class="text-center" style="width: 50px">#</th>
             <th>Marka</th>
-            <th>Renk</th>
-            <th>Model Yılı</th>
-            <th>Günlük Ücret</th>
+            <th></th>
          </tr>
          </thead>
          <tbody>
-         <tr *ngFor="let car of carDetails" routerLink="/cars/detail/{{ car.id }}">
-            <th class="text-center">{{ car.id }}</th>
-            <td>{{ car.brandName }} {{ car.description }}</td>
-            <td>{{ car.colorName }}</td>
-            <td>{{ car.modelYear }}</td>
-            <td>{{ car.dailyPrice }}</td>
+         <tr *ngFor="let brand of brands | brandFilter: filterText">
+            <th class="text-center">{{ brand.id }}</th>
+            <td>{{ brand.name }}</td>
+            <td class="text-end">
+               <button class="btn btn-sm btn-primary rounded-0 px-4"
+                       routerLink="/brands/update/{{ brand.id }}">
+                  <i class="bi-pencil me-1"></i> GÜNCELLE
+               </button>
+            </td>
          </tr>
          </tbody>
       </table>
@@ -24,29 +25,13 @@
 
    <div class="col-lg-3">
 
-      <div class="d-grid mb-3">
+      <input type="text" [(ngModel)]="filterText" class="form-control rounded-0 mb-3"
+             placeholder="Marka Ara..." autocomplete="off">
+
+      <div class="d-grid">
          <button class="btn btn-primary rounded-0" routerLink="/brands/add">
             <i class="bi-plus-square me-1"></i> Yeni Marka Ekle
          </button>
-      </div>
-
-      <input type="text" [(ngModel)]="filterText" class="form-control rounded-0 mb-3"
-             placeholder="Marka Ara..." autocomplete="off" >
-
-      <div class="list-group rounded-0">
-         <div class="list-group-item fw-bold" style="background-color: #DDD">
-            <i class="bi-card-list"></i> {{ title }}
-         </div>
-
-         <button routerLink="/brands" (click)="resetCurrentBrandId()" class="{{ listAllBrandCss }}"
-                 style="background-color: #EEE">
-            Tümünü Listele
-         </button>
-
-         <a *ngFor="let brand of brands | brandFilter: filterText" routerLink="/brands/{{ brand.id }}"
-            [class]="getCurrentBrandClass(brand.id)" (click)="setCurrentBrand(brand.id)">
-            {{ brand.name }}
-         </a>
       </div>
    </div>
 </div>
