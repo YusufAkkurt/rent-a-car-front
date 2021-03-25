@@ -10,12 +10,14 @@ import { RentalAddComponent } from './components/rental/rental-add/rental-add.co
 import { CardComponent } from './components/card/card.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
 
 const routes: Routes = [
    { path: 'rentals', component: RentalComponent },
    { path: 'rentals/:carId', component:RentalAddComponent },
    { path: 'customers', component: CustomerComponent },
    { path: 'cars', component: CarComponent },
+   { path: 'cars/add', component: CarAddComponent },
    { path: 'cars/filter/:brandId/:colorId', component: CarComponent },
    { path: 'cars/detail/:carId', component: CarDetailComponent },
    { path: 'brands', component: BrandComponent },

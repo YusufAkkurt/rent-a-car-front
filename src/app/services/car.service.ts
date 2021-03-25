@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { ListResponseModel } from '../models/listResponseModel';
 import { CarDetail } from '../models/carDetail';
 import { SingleResponseModel } from '../models/singleResponseModel';
+import { ResponseModel } from '../models/responseModel';
+import { Car } from '../models/car';
 
 @Injectable({
    providedIn: 'root'
@@ -11,7 +13,7 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 
 export class CarService {
 
-   apiUrl: string = 'https://localhost:44371/api/cars/';
+   private apiUrl: string = 'https://localhost:44371/api/cars/';
 
    constructor(private httpClient: HttpClient) {
    }
@@ -34,5 +36,9 @@ export class CarService {
    getCarsByColorId(colorId: number): Observable<ListResponseModel<CarDetail>> {
       let newPath: string = this.apiUrl + 'get-cars-by-colorid?colorId=' + colorId;
       return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+   }
+
+   add(car: Car): Observable<ResponseModel> {
+      return this.httpClient.post<ResponseModel>(this.apiUrl, car);
    }
 }

@@ -1,0 +1,68 @@
+<div class="row mt-4">
+   <div class="col-lg-9">
+
+      <div class="card rounded-0">
+         <div class="card-header fw-bold">
+            <i class="bi-plus-square me-1"></i> Yeni Araba Ekle
+         </div>
+         <div class="card-body">
+            <form autocomplete="off" [formGroup]="carAddForm" (ngSubmit)="add()">
+
+               <div class="form-floating mb-3">
+                  <select class="form-select" id="brands" formControlName="brandId">
+                     <option value="">-- Marka Seçiniz --</option>
+
+                     <option *ngFor="let brand of brands" [value]="brand.id">
+                        {{ brand.name }}
+                     </option>
+                  </select>
+                  <label for="brands">Markalar</label>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <select class="form-select" id="colors" formControlName="colorId">
+                     <option value="">-- Renk Seçiniz --</option>
+
+                     <option *ngFor="let color of colors" [value]="color.id">
+                        {{ color.name }}
+                     </option>
+                  </select>
+                  <label for="colors">Renkler</label>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="description" placeholder="description"
+                         formControlName="description">
+                  <label for="description">Model Adı / Açıklama</label>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="modelYear" placeholder="modelYear"
+                         formControlName="modelYear">
+                  <label for="modelYear">Model Yılı</label>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="dailyPrice" placeholder="dailyPrice"
+                         formControlName="dailyPrice">
+                  <label for="dailyPrice">Günlük Ücret - ₺</label>
+               </div>
+
+               <div class="text-end">
+                  <button type="submit" class="btn btn-primary rounded-0 px-4 fw-bold">
+                     <i class="bi-save2 me-1"></i> Ekle
+                  </button>
+               </div>
+            </form>
+         </div>
+      </div>
+
+   </div>
+   <div class="col-lg-3">
+      <div class="d-grid">
+         <button class="btn btn-primary rounded-0" routerLink="/cars">
+            <i class="bi-list me-1"></i> Araba Listesine Geri Dön
+         </button>
+      </div>
+   </div>
+</div>

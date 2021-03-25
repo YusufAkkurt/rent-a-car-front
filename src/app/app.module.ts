@@ -23,6 +23,7 @@ import { RentalAddComponent } from './components/rental/rental-add/rental-add.co
 import { CardComponent } from './components/card/card.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
 
 @NgModule({
    declarations: [
@@ -41,7 +42,8 @@ import { ColorAddComponent } from './components/color/color-add/color-add.compon
       RentalAddComponent,
       CardComponent,
       BrandAddComponent,
-      ColorAddComponent
+      ColorAddComponent,
+      CarAddComponent
    ],
    imports: [
       BrowserModule,

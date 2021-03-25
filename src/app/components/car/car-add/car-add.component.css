@@ -1,0 +1,17 @@
+.form-control {
+   border-radius: 0;
+}
+
+.form-control:focus{
+   border-color: #0D6EFD;
+   box-shadow: none;
+}
+
+.form-select {
+   border-radius: 0;
+}
+
+.form-select:focus{
+   border-color: #0D6EFD;
+   box-shadow: none;
+}
