@@ -1,0 +1,26 @@
+.body {
+   height: 70vh;
+}
+
+.form-control{
+   border-radius: 0;
+}
+
+.form-control:focus{
+   box-shadow: none;
+   border-color: #0D6EFD;
+}
+
+.login {
+   color: #0D6EFD;
+   transition: all .2s;
+}
+
+.login:hover {
+   cursor: pointer;
+   color: #043d94;
+}
+
+.login:focus {
+   outline-width: 0;
+}

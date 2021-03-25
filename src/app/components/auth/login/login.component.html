@@ -1,0 +1,48 @@
+<div class="row text-center body">
+   <div class="col-lg-4 mx-auto my-auto">
+      <div class="display-6 mb-4">Giriş Yap</div>
+
+      <div class="card rounded-0 shadow">
+         <div class="card-header fw-bold">
+            <i class="bi-bullseye me-2"></i> <span>Rent A Car</span>
+         </div>
+         <div class="card-body">
+
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+               <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="email" placeholder="email" formControlName="email">
+                  <label for="email">E-Posta Adresiniz</label>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="password" placeholder="password"
+                         formControlName="password">
+                  <label for="password">Şifreniz</label>
+               </div>
+
+               <div class="row mb-4">
+                  <div class="col-lg-6 my-auto text-start">
+                     <i class="bi-bullseye ms-1"></i> RAC {{ getYear() }}&copy;
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="d-grid">
+                        <button class="btn btn-primary rounded-0">
+                           <i class="bi-box-arrow-in-right me-1"></i> Giriş Yap
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </form>
+
+            <div class="lead mb-3">- Yada -</div>
+
+            <div class="d-block text-start">
+               <span class="register" routerLink="/auth/register">
+                  <i class="bi-check2-all me-1"></i> Yeni bir kayıt oluşturun
+               </span>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</div>

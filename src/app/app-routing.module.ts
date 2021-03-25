@@ -14,10 +14,12 @@ import { CarAddComponent } from './components/car/car-add/car-add.component';
 import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
 import { CarUpdateComponent } from './components/car/car-update/car-update.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 const routes: Routes = [
    { path: 'rentals', component: RentalComponent },
-   { path: 'rentals/:carId', component:RentalAddComponent },
+   { path: 'rentals/:carId', component: RentalAddComponent },
 
    { path: 'customers', component: CustomerComponent },
 
@@ -38,6 +40,9 @@ const routes: Routes = [
    { path: 'colors/:colorId', component: ColorComponent },
 
    { path: 'cards', component: CardComponent },
+
+   { path: 'auth/login', component: LoginComponent },
+   { path: 'auth/register', component: RegisterComponent },
 
    { path: '**', redirectTo: 'cars', pathMatch: 'full' }
 ];
