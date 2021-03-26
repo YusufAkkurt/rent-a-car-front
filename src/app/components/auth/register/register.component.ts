@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../../../services/local-storage.service';
+import { CustomerService } from '../../../services/customer.service';
+import { Customer } from '../../../models/customer';
 
 @Component({
    selector: 'app-register',
@@ -15,12 +17,14 @@ import { LocalStorageService } from '../../../services/local-storage.service';
 export class RegisterComponent implements OnInit {
 
    registerForm: FormGroup;
+   customer: Customer;
 
    constructor(private formBuilder: FormBuilder,
                private toastrService: ToastrService,
                private authService: AuthService,
                private router: Router,
-               private localStorageService: LocalStorageService) {
+               private localStorageService: LocalStorageService,
+               private customerService: CustomerService) {
    }
 
    ngOnInit(): void {
@@ -31,6 +35,7 @@ export class RegisterComponent implements OnInit {
       this.registerForm = this.formBuilder.group({
          firstName: ['', Validators.required],
          lastName: ['', Validators.required],
+         companyName: [''],
          email: ['', [Validators.required, Validators.email]],
          password: ['', Validators.required],
          confirmPassword: ['', Validators.required]
@@ -54,6 +59,7 @@ export class RegisterComponent implements OnInit {
       this.authService.register(registerModel).subscribe(responseSuccess => {
          this.toastrService.success(responseSuccess.message, 'Başarılı');
          this.localStorageService.setToken(responseSuccess.data.token);
+         this.getCustomerByEmail(registerModel.email);
 
          return this.router.navigate(['/cars']);
       }, responseError => {
@@ -70,6 +76,13 @@ export class RegisterComponent implements OnInit {
          this.toastrService.error(
             responseError.status + ' ' + responseError.name, responseError.error
          );
+      });
+   }
+
+   getCustomerByEmail(email: string) {
+      this.customerService.getCustomerByEmail(email).subscribe(responseSuccess => {
+         this.customer = responseSuccess.data;
+         this.localStorageService.setCurrentCustomer(this.customer);
       });
    }
 

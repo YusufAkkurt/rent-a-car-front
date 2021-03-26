@@ -29,6 +29,8 @@ import { ColorUpdateComponent } from './components/color/color-update/color-upda
 import { CarUpdateComponent } from './components/car/car-update/car-update.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { AuthMenuComponent } from './components/navi/auth-menu/auth-menu.component';
+import { ProfileComponent } from './components/auth/profile/profile.component';
 
 @NgModule({
    declarations: [
@@ -53,7 +55,9 @@ import { RegisterComponent } from './components/auth/register/register.component
       ColorUpdateComponent,
       CarUpdateComponent,
       LoginComponent,
-      RegisterComponent
+      RegisterComponent,
+      AuthMenuComponent,
+      ProfileComponent
    ],
    imports: [
       BrowserModule,

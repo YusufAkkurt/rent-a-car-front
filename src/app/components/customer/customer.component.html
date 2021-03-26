@@ -13,7 +13,8 @@
          <th class="text-center">{{ customer.id }}</th>
          <td>{{ customer.firstName }} {{ customer.lastName }}</td>
          <td>{{ customer.email }}</td>
-         <td>{{ customer.companyName }}</td>
+         <td *ngIf="customer.companyName">{{ customer.companyName }}</td>
+         <td *ngIf="!customer.companyName" class="text-muted">Şirket bilgisi yok</td>
       </tr>
       </tbody>
    </table>

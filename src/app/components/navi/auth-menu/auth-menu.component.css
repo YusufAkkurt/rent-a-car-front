@@ -1,0 +1,28 @@
+.btn-group button {
+   border-radius: 0;
+   padding-right: 18px;
+   padding-left: 18px;
+}
+
+.btn-group button:focus {
+   box-shadow: none;
+}
+
+.btn-group .dropdown-menu {
+   background-color: #6C757D;
+   border-radius: 0;
+}
+
+.btn-group .dropdown-menu .dropdown-divider {
+   color: #EEEEEE;
+}
+
+.btn-group .dropdown-menu .dropdown-item {
+   cursor: pointer;
+   color: #EEEEEE;
+   /*transition: all .3s;*/
+}
+
+.btn-group .dropdown-menu .dropdown-item:hover {
+   color: #6C757D;
+}
