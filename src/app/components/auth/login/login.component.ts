@@ -53,9 +53,9 @@ export class LoginComponent implements OnInit {
 
          return this.router.navigate(['/cars']);
       }, responseError => {
-         console.log(responseError.error)
+         console.log(responseError);
          return this.toastrService.error(
-            responseError.error.StatusCode + " " + responseError.error.Message, 'Hata'
+            responseError.error, 'Hata'
          );
       });
    }
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
    getCustomerByEmail(email: string) {
       this.customerService.getCustomerByEmail(email).subscribe(responseSuccess => {
          this.customer = responseSuccess.data;
-         this.localStorageService.setCurrentCustomer(this.customer)
+         this.localStorageService.setCurrentCustomer(this.customer);
       });
    }
 

@@ -16,6 +16,7 @@ import { ColorUpdateComponent } from './components/color/color-update/color-upda
 import { CarUpdateComponent } from './components/car/car-update/car-update.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { ProfileComponent } from './components/auth/profile/profile.component';
 
 const routes: Routes = [
    { path: 'rentals', component: RentalComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
 
    { path: 'auth/login', component: LoginComponent },
    { path: 'auth/register', component: RegisterComponent },
+   { path: 'auth/profile', component: ProfileComponent },
 
    { path: '**', redirectTo: 'cars', pathMatch: 'full' }
 ];

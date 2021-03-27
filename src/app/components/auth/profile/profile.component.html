@@ -1,1 +1,70 @@
-<p>profile works!</p>
+<div class="row text-center body">
+   <div class="col-lg-4 mx-auto my-auto">
+      <div class="display-6 mb-4">Güncelle</div>
+
+      <div class="card rounded-0 shadow">
+         <div class="card-header fw-bold">
+            <i class="bi-bullseye me-2"></i> <span>Rent A Car</span>
+         </div>
+         <div class="card-body">
+
+            <form [formGroup]="customerUpdateForm" (ngSubmit)="update()">
+               <div class="row">
+                  <div class="col-lg-6">
+                     <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="firstName"
+                               formControlName="firstName" placeholder="firstName">
+                        <label for="firstName">Adınız *</label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="lastName"
+                               formControlName="lastName" placeholder="lastName">
+                        <label for="lastName">Soyadınız *</label>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="companyName"
+                         formControlName="companyName" placeholder="companyName">
+                  <label for="companyName">Şirket Adı</label>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="email"
+                         formControlName="email" placeholder="email">
+                  <label for="email">E-Posta Adresiniz *</label>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="password"
+                         formControlName="password" placeholder="password">
+                  <label for="password">Şifreniz *</label>
+               </div>
+
+               <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="confirmPassword"
+                         formControlName="confirmPassword" placeholder="confirmPassword">
+                  <label for="confirmPassword">Şifrenizi Onaylayın *</label>
+               </div>
+
+               <div class="row">
+                  <div class="col-lg-6 my-auto text-start">
+                     <i class="bi-bullseye ms-1"></i> RAC {{ getYear() }}&copy;
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="d-grid">
+                        <button class="btn btn-primary rounded-0">
+                           <i class="bi-plus-square me-1"></i> Üye Ol
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </form>
+
+         </div>
+      </div>
+   </div>
+</div>

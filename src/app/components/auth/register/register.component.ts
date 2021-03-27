@@ -57,9 +57,9 @@ export class RegisterComponent implements OnInit {
       let registerModel: RegisterModel = Object.assign({}, this.registerForm.value);
 
       this.authService.register(registerModel).subscribe(responseSuccess => {
-         this.toastrService.success(responseSuccess.message, 'Başarılı');
          this.localStorageService.setToken(responseSuccess.data.token);
          this.getCustomerByEmail(registerModel.email);
+         this.toastrService.success(responseSuccess.message, 'Başarılı');
 
          return this.router.navigate(['/cars']);
       }, responseError => {
