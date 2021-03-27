@@ -29,7 +29,7 @@ export class LocalStorageService {
       localStorage.setItem(this.currentCustomer, JSON.stringify(currentCustomerValue));
    }
 
-   getCurrentCustomer() {
+   getCurrentCustomer(): Customer {
       return JSON.parse(localStorage.getItem(this.currentCustomer));
    }
 

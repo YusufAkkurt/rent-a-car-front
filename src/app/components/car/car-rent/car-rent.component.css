@@ -1,0 +1,18 @@
+input{
+   border-radius: 0;
+}
+
+input:focus{
+   border-color: #0D6EFD;
+   box-shadow: none;
+}
+
+button{
+   border-radius: 0;
+   padding-left: 18px;
+   padding-right: 18px;
+}
+
+button:focus, button:focus:active{
+   box-shadow: none;
+}

@@ -1,0 +1,24 @@
+* {
+   border-radius: 0;
+}
+
+*:focus, *:focus:active {
+   box-shadow: none;
+}
+
+input:focus {
+   border-color: #0D6EFD;
+}
+
+.form-check-input, .form-check-label{
+   cursor: pointer;
+}
+
+.form-check-input{
+   border-radius: 0;
+}
+
+button{
+   padding-right: 18px;
+   padding-left: 18px;
+}

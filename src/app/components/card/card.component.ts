@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from '../../models/card';
 import { CardService } from '../../services/card.service';
-import { RentableCarService } from '../../services/rentable-car.service';
-import { RentableCar } from '../../models/rentableCar';
 import { RentalService } from '../../services/rental.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Rental } from '../../models/rental';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
    selector: 'app-card',
@@ -15,53 +16,107 @@ import { ToastrService } from 'ngx-toastr';
 
 export class CardComponent implements OnInit {
 
-   // @ts-ignore
-   card: Card = {
-      customerId: 1,
-      cardNameSurname: '',
-      cardNumber: '',
-      validDate: '',
-      cvv: ''
-   };
+   totalPrice: number = 0;
+   rentedCar: Rental;
+   card: Card;
+   cardAddForm: FormGroup;
 
-   isSaved: boolean = true;
-
-   constructor(private cardService: CardService,
-               private rentalService: RentalService,
-               private rentableCarService: RentableCarService,
+   constructor(private rentalService: RentalService,
+               private formBuilder: FormBuilder,
+               private localStorageService: LocalStorageService,
+               private toastrService: ToastrService,
                private router: Router,
-               private toastrService: ToastrService) {
+               private cardService: CardService) {
    }
 
    ngOnInit(): void {
-      if (!this.getRentableCar()) {
-         console.log('Kiralanacak araba bellekte bulunamadı');
-      }
+      this.checkNullRentingCar();
+      this.createCardAddForm();
    }
 
-   add() {
-      if (!this.isSaved) {
-         return console.log('Bilgiler kayıt edilmeycek');
-      }
-
-      this.cardService.add(this.card).subscribe(response => {
-         if (!response.success) {
-            this.toastrService.error(response.message);
-         } else {
-            // @ts-ignore
-            this.rentalService.add(this.getRentableCar()).subscribe(response => {
-               if (!response.success) {
-                  this.toastrService.error(response.message);
-               } else {
-                  this.toastrService.success(response.message);
-                  this.router.navigate(['/rentals']);
-               }
-            });
-         }
+   createCardAddForm() {
+      this.cardAddForm = this.formBuilder.group({
+         customerId: [this.localStorageService.getCurrentCustomer().id, Validators.required],
+         cardNameSurname: ['', Validators.required],
+         cardNumber: ['', Validators.required],
+         validDate: ['', Validators.required],
+         cvv: ['', Validators.required],
+         save: [true]
       });
    }
 
-   getRentableCar(): RentableCar {
-      return this.rentableCarService.getRentableCar();
+   add() {
+      this.rentedCar = Object.assign({}, this.rentalService.getRentingCar());
+
+      if (this.cardAddForm.invalid) {
+         return this.toastrService.warning('Bilgilerinizi kontrol ediniz', 'Dikkat');
+      }
+
+      if (this.cardAddForm.value.save) {
+         delete this.cardAddForm.value.save;
+         this.card = Object.assign({}, this.cardAddForm.value);
+         this.addCard(this.card);
+      }
+
+      return this.addRental(this.rentedCar);
+   }
+
+   addRental(rental: Rental) {
+      this.rentalService.add(rental).subscribe(responseSuccess => {
+         return this.toastrService.success(responseSuccess.message, 'Başarılı');
+      }, responseError => {
+         console.log(responseError)
+         if (responseError.error.ValidationErrors) {
+            for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+               this.toastrService.error(
+                  responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası'
+               );
+            }
+
+            return false;
+         }
+
+         this.toastrService.error(responseError.error.message, 'Hata');
+         return false;
+      });
+   }
+
+   addCard(card: Card) {
+      this.cardService.add(card).subscribe(responseSuccess => {
+         this.toastrService.success(responseSuccess.message, 'Başarılı');
+         return this.resultSuccess();
+      }, responseError => {
+         if (responseError.error.ValidationErrors.length > 0) {
+            for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+               this.toastrService.error(
+                  responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası'
+               );
+            }
+
+            return;
+         }
+
+         this.toastrService.error(responseError.error.Message, responseError.error.StatusCode);
+         return;
+      });
+   }
+
+   checkNullRentingCar() {
+      if (!this.rentalService.getRentingCar()) {
+         this.toastrService.error(
+            'Araba bilgileri boş, Önce bilgileri kontrol edin', 'Hata!'
+         );
+         return this.router.navigate(['']);
+      }
+
+      return true;
+   }
+
+   resultSuccess() {
+      this.toastrService.success(
+         'Ödeme tamamlandı. Kart bilgileri kayıt edilmeyecek', 'Başarılı'
+      );
+
+      return this.router.navigate(['']);
    }
 }

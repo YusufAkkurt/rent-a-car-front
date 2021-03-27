@@ -75,7 +75,6 @@ export class ProfileComponent implements OnInit {
             return;
          }
 
-         console.log(responseError);
          this.toastrService.error(
             responseError.error.StatusCode + ' ' + responseError.error.Message, responseError.name
          );

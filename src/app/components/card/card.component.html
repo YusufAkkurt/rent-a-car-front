@@ -4,50 +4,55 @@
          <div class="card-header fw-bold">
             <i class="bi-credit-card me-1"></i> Kart bilgilerinizi doldurun
          </div>
+
          <div class="card-body">
 
-            <div class="mb-3">
-               <label for="name">Kart üzerindeki isim</label>
-               <input type="text" id="name" class="form-control"
-                      placeholder="Örn: Yusuf Akkurt" [(ngModel)]="card.cardNameSurname">
-            </div>
+            <form [formGroup]="cardAddForm" (ngSubmit)="add()">
 
-            <div class="mb-3">
-               <label for="name">Kart Numarası</label>
-               <input type="text" id="cardNumber" class="form-control"
-                      placeholder="Örn: 1234567891234567" [(ngModel)]="card.cardNumber">
-            </div>
+               <div class="form-floating mb-3">
+                  <input type="text" id="cardNameSurname" class="form-control"
+                         placeholder="cardNameSurname" formControlName="cardNameSurname">
+                  <label for="cardNameSurname">Kart Üzerindeki Ad ve Soyad</label>
+               </div>
 
-            <div class="row">
-               <div class="col-lg-6">
-                  <div class="mb-3">
-                     <label for="validDate">Son Kullanım Tarihi</label>
-                     <input type="text" id="validDate" class="form-control"
-                            placeholder="Örn: 05/25" [(ngModel)]="card.validDate">
+               <div class="form-floating mb-3">
+                  <input type="text" id="cardNumber" class="form-control"
+                         placeholder="cardNumber" formControlName="cardNumber">
+                  <label for="cardNumber">Kart Numarası</label>
+               </div>
+
+               <div class="row">
+                  <div class="col-lg-6">
+                     <div class="form-floating mb-3">
+                        <input type="text" id="validDate" class="form-control"
+                               placeholder="validDate" formControlName="validDate">
+                        <label for="validDate">Son Kullanım Tarihi</label>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="form-floating mb-3">
+                        <input type="text" id="cvv" class="form-control"
+                               placeholder="cvv" formControlName="cvv">
+                        <label for="cvv">CVV</label>
+                     </div>
                   </div>
                </div>
 
-               <div class="col-lg-6">
-                  <div class="mb-3">
-                     <label for="validDate">CVV</label>
-                     <input type="text" id="cvv" class="form-control"
-                            placeholder="Kartın arkasındaki son üç hane" [(ngModel)]="card.cvv">
-                  </div>
+               <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="save" formControlName="save">
+                  <label class="form-check-label" for="save">
+                     Kart bilgilerimin kayıt edilmesini istiyorum.
+                  </label>
                </div>
-            </div>
 
-            <div class="form-check">
-               <input type="checkbox" class="form-check-input" id="isSaved" checked [(ngModel)]="isSaved">
-               <label class="form-check-label" for="isSaved">
-                  Kart bilgilerimin kaydedilmesini istiyorum.
-               </label>
-            </div>
+               <div class="text-end">
+                  <button class="btn btn-primary" [disabled]="cardAddForm.invalid">
+                     <i class="bi-credit-card-2-back me-1"></i> Ödeme Yap
+                  </button>
+               </div>
 
-            <div class="text-end">
-               <button type="submit" class="btn btn-primary rounded-0" (click)="add()">
-                  <i class="bi-credit-card-2-back me-1"></i> Ödeme yap
-               </button>
-            </div>
+            </form>
+
          </div>
       </div>
    </div>

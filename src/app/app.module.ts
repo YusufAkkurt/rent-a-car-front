@@ -31,6 +31,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { AuthMenuComponent } from './components/navi/auth-menu/auth-menu.component';
 import { ProfileComponent } from './components/auth/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CarRentComponent } from './components/car/car-rent/car-rent.component';
 
 @NgModule({
    declarations: [
@@ -56,7 +57,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
       LoginComponent,
       RegisterComponent,
       AuthMenuComponent,
-      ProfileComponent
+      ProfileComponent,
+      CarRentComponent
    ],
    imports: [
       BrowserModule,

@@ -27,8 +27,10 @@
          <li><h5><b>Model Year: </b>{{ carDetail.modelYear }}</h5></li>
          <li><h5><b>Günlük Ücret: </b>{{carDetail.dailyPrice }} ₺</h5></li>
       </ul>
-      <button class="btn btn-primary rounded-0 px-4" (click)="rentableCar(carDetail.id)">
-         <i class="bi-credit-card-fill me-1"></i> Kirala
-      </button>
+
+      <div *ngIf="isAuthenticate()">
+         <app-car-rent></app-car-rent>
+      </div>
+
    </div>
 </div>
