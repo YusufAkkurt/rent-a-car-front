@@ -75,16 +75,18 @@ export class CarAddComponent implements OnInit {
       this.carService.add(car).subscribe(responseSuccess => {
          return this.toastrService.success(responseSuccess.message, 'Başarılı');
       }, responseError => {
-         if (responseError.error.ValidationErrors.length == 0) {
-            this.toastrService.error(responseError.error.Message, responseError.error.StatusCode);
+         if (responseError.error.ValidationErrors.length > 0) {
+            for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+               this.toastrService.error(
+                  responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası'
+               );
+            }
+
             return;
          }
 
-         for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
-            this.toastrService.error(
-               responseError.error.ValidationErrors[i].ErrorMessage, 'Doğrulama Hatası'
-            );
-         }
+         console.log(responseError)
+         this.toastrService.error(responseError.error.Message, responseError.error.StatusCode);
       });
    }
 }

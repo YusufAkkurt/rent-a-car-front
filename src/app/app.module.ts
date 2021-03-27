@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { ToastrModule } from "ngx-toastr";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +31,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { AuthMenuComponent } from './components/navi/auth-menu/auth-menu.component';
 import { ProfileComponent } from './components/auth/profile/profile.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
    declarations: [
@@ -67,10 +68,13 @@ import { ProfileComponent } from './components/auth/profile/profile.component';
       ReactiveFormsModule,
       BrowserAnimationsModule,
       ToastrModule.forRoot({
-         positionClass: "toast-bottom-right"
+         positionClass: 'toast-bottom-right'
       })
    ],
-   providers: [DatePipe],
+   providers: [
+      DatePipe,
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+   ],
    bootstrap: [AppComponent]
 })
 
