@@ -19,7 +19,6 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
 import { CarFilterComponent } from './components/car/car-filter/car-filter.component';
-import { RentalAddComponent } from './components/rental/rental-add/rental-add.component';
 import { CardComponent } from './components/card/card.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
@@ -47,7 +46,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
       ColorFilterPipe,
       CarFilterPipe,
       CarFilterComponent,
-      RentalAddComponent,
       CardComponent,
       BrandAddComponent,
       ColorAddComponent,
