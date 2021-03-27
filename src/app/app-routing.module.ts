@@ -18,7 +18,6 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { ProfileComponent } from './components/auth/profile/profile.component';
 
 const routes: Routes = [
-   { path: '**', redirectTo: 'cars', pathMatch: 'full' },
    { path: 'rentals', component: RentalComponent },
    { path: 'customers', component: CustomerComponent },
    { path: 'cards', component: CardComponent },
@@ -51,7 +50,9 @@ const routes: Routes = [
          { path: 'register', component: RegisterComponent },
          { path: 'profile', component: ProfileComponent },
       ]
-   }
+   },
+
+   { path: '**', redirectTo: 'cars', pathMatch: 'full' }
 ];
 
 @NgModule({
