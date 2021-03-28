@@ -18,13 +18,21 @@
    </select>
 </div>
 
-<div>
-   <button class="btn btn-outline-primary rounded-0 px-4" routerLink="/cars/filter/0/0" (click)="clearFilter()">
-      <i class="bi-backspace me-1"></i> Temizle
-   </button>
-
-   <button class="btn btn-primary rounded-0 px-4 float-end" *ngIf="brandFilter > 0 || colorFilter > 0"
-           routerLink="/cars/filter/{{ brandFilter }}/{{ colorFilter }}">
-      <i class="bi-search me-1"></i> Filtrele
-   </button>
+<div class="row" *ngIf="brandFilter > 0 || colorFilter > 0">
+   <div class="col-lg mb-3 mb-lg-0">
+      <div class="d-grid">
+         <button class="btn btn-outline-primary"
+                 routerLink="/cars" (click)="clearFilter()">
+            <i class="bi-backspace me-1"></i> Temizle
+         </button>
+      </div>
+   </div>
+   <div class="col-lg">
+      <div class="d-grid">
+         <button class="btn btn-primary"
+                 routerLink="/cars/filter/{{ brandFilter }}/{{ colorFilter }}">
+            <i class="bi-search me-1"></i> Filtrele
+         </button>
+      </div>
+   </div>
 </div>

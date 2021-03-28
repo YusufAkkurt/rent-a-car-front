@@ -74,7 +74,9 @@ export class CarRentComponent implements OnInit {
 
          if (responseSuccess.data[0] == null) {
             this.setRentingCar();
-            return true;
+
+            this.toastrService.success('Ödeme sayfasına yönlendiriliyorsunuz');
+            return this.router.navigate(['/cards']);
          }
 
          let lastItem = responseSuccess.data[responseSuccess.data.length - 1];

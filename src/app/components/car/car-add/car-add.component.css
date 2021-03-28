@@ -1,17 +1,21 @@
-.form-control {
+.card,
+.form-control,
+.form-select,
+.btn {
    border-radius: 0;
 }
 
-.form-control:focus{
+.form-select{
+   cursor: pointer;
+}
+
+.form-control:focus, .form-select:focus {
    border-color: #0D6EFD;
    box-shadow: none;
 }
 
-.form-select {
-   border-radius: 0;
-}
-
-.form-select:focus{
-   border-color: #0D6EFD;
-   box-shadow: none;
+form .btn {
+   padding-left: 18px;
+   padding-right: 18px;
+   font-weight: bold;
 }

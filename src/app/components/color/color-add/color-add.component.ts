@@ -37,6 +37,7 @@ export class ColorAddComponent implements OnInit {
       }
 
       this.colorService.add(color).subscribe(responseSuccess => {
+         this.colorAddForm.reset();
          return this.toastrService.success(responseSuccess.message, 'Başarılı');
       }, responseError => {
          if (responseError.error.ValidationErrors.length > 0) {

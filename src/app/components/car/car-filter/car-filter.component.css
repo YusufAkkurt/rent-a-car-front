@@ -12,3 +12,7 @@ select:focus {
    box-shadow: none;
    background-color: transparent;
 }
+
+.btn {
+   border-radius: 0;
+}

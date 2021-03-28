@@ -1,4 +1,24 @@
-input:focus{
+input:focus {
    border-color: #0D6EFD;
    box-shadow: none;
+   border-radius: 0;
 }
+
+button {
+   border-radius: 0;
+}
+
+button:focus, button:focus:active {
+   box-shadow: none;
+}
+
+tr > td {
+   vertical-align: middle;
+   cursor: pointer;
+}
+
+tr:focus {
+   outline: none;
+   box-shadow: 0 0 10px 1px rgba(0, 0, 0, .2);
+}
+

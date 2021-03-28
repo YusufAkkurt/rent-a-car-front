@@ -63,9 +63,10 @@ export class CardComponent implements OnInit {
 
    addRental(rental: Rental) {
       this.rentalService.add(rental).subscribe(responseSuccess => {
-         return this.toastrService.success(responseSuccess.message, 'Başarılı');
+         this.toastrService.success(responseSuccess.message, 'Başarılı');
+         return this.router.navigate(['']);
       }, responseError => {
-         console.log(responseError)
+         console.log(responseError);
          if (responseError.error.ValidationErrors) {
             for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
                this.toastrService.error(
@@ -83,8 +84,7 @@ export class CardComponent implements OnInit {
 
    addCard(card: Card) {
       this.cardService.add(card).subscribe(responseSuccess => {
-         this.toastrService.success(responseSuccess.message, 'Başarılı');
-         return this.resultSuccess();
+         return responseSuccess.success
       }, responseError => {
          if (responseError.error.ValidationErrors.length > 0) {
             for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
@@ -112,11 +112,8 @@ export class CardComponent implements OnInit {
       return true;
    }
 
-   resultSuccess() {
-      this.toastrService.success(
-         'Ödeme tamamlandı. Kart bilgileri kayıt edilmeyecek', 'Başarılı'
-      );
-
-      return this.router.navigate(['']);
+   setSelectedCard(cardOnEventing: Card) {
+      this.card = Object.assign(cardOnEventing, { save: false });
+      this.cardAddForm.setValue(this.card);
    }
 }

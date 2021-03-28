@@ -73,6 +73,10 @@ export class CarAddComponent implements OnInit {
       }
 
       this.carService.add(car).subscribe(responseSuccess => {
+         this.carAddForm.reset();
+         this.carAddForm.get('brandId').setValue('');
+         this.carAddForm.get('colorId').setValue('');
+
          return this.toastrService.success(responseSuccess.message, 'Başarılı');
       }, responseError => {
          if (responseError.error.ValidationErrors.length > 0) {
@@ -85,7 +89,7 @@ export class CarAddComponent implements OnInit {
             return;
          }
 
-         console.log(responseError)
+         console.log(responseError);
          this.toastrService.error(responseError.error.Message, responseError.error.StatusCode);
       });
    }

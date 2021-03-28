@@ -1,8 +1,8 @@
 export interface Card {
-   id: number | undefined
-   customerId: number | undefined
-   cardNameSurname: string | undefined
-   cardNumber: string | undefined
-   validDate: string | undefined
-   cvv: string | undefined
+   id: number
+   customerId: number
+   cardNameSurname: string
+   cardNumber: string
+   validDate: string
+   cvv: string
 }

@@ -32,6 +32,7 @@ import { AuthMenuComponent } from './components/navi/auth-menu/auth-menu.compone
 import { ProfileComponent } from './components/auth/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CarRentComponent } from './components/car/car-rent/car-rent.component';
+import { CardSavedComponent } from './components/card/card-saved/card-saved.component';
 
 @NgModule({
    declarations: [
@@ -58,7 +59,8 @@ import { CarRentComponent } from './components/car/car-rent/car-rent.component';
       RegisterComponent,
       AuthMenuComponent,
       ProfileComponent,
-      CarRentComponent
+      CarRentComponent,
+      CardSavedComponent
    ],
    imports: [
       BrowserModule,

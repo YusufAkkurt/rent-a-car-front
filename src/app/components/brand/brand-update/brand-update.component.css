@@ -1,0 +1,16 @@
+.card,
+.form-control,
+.btn {
+   border-radius: 0;
+}
+
+.form-control:focus {
+   border-color: #0D6EFD;
+   box-shadow: none;
+}
+
+form .btn {
+   padding-left: 18px;
+   padding-right: 18px;
+   font-weight: bold;
+}

@@ -38,6 +38,7 @@ export class BrandAddComponent implements OnInit {
       }
 
       this.brandService.add(brand).subscribe(responseSuccess => {
+         this.brandAddForm.reset();
          return this.toastrService.success(responseSuccess.message, 'Başarılı');
       }, responseError => {
          if (responseError.error.ValidationErrors.length == 0) {
