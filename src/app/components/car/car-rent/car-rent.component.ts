@@ -66,7 +66,9 @@ export class CarRentComponent implements OnInit {
       }
 
       this.rentalService.setRentingCar(this.rental);
-      return true;
+
+      this.toastrService.success('Ödeme sayfasına yönlendiriliyorsunuz');
+      return this.router.navigate(['/cards']);
    }
 
    checkCarRentable() {
@@ -74,9 +76,7 @@ export class CarRentComponent implements OnInit {
 
          if (responseSuccess.data[0] == null) {
             this.setRentingCar();
-
-            this.toastrService.success('Ödeme sayfasına yönlendiriliyorsunuz');
-            return this.router.navigate(['/cards']);
+            return true;
          }
 
          let lastItem = responseSuccess.data[responseSuccess.data.length - 1];
@@ -95,8 +95,7 @@ export class CarRentComponent implements OnInit {
             );
          }
 
-         this.toastrService.success('Ödeme sayfasına yönlendiriliyorsunuz');
-         return this.router.navigate(['/cards']);
+         return true;
       });
    }
 }

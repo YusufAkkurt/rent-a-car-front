@@ -6,6 +6,7 @@
          <th>Müşteri</th>
          <th>E-Posta</th>
          <th>Şirket</th>
+         <th>F.P</th>
       </tr>
       </thead>
       <tbody>
@@ -15,6 +16,7 @@
          <td>{{ customer.email }}</td>
          <td *ngIf="customer.companyName">{{ customer.companyName }}</td>
          <td *ngIf="!customer.companyName" class="text-muted">Şirket bilgisi yok</td>
+         <td>{{ customer.findexPoint }}</td>
       </tr>
       </tbody>
    </table>

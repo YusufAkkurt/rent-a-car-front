@@ -3,33 +3,37 @@
       <input type="text" [(ngModel)]="filterText" class="form-control rounded-0 mb-3"
              placeholder="Araba Ara..." autocomplete="off" >
 
-      <table class="table table-hover table-striped border">
-         <thead>
-         <tr>
-            <th class="text-center" style="width: 50px">#</th>
-            <th>Marka</th>
-            <th>Renk</th>
-            <th>Model Yılı</th>
-            <th>Günlük Ücret</th>
-            <th class="text-center"><i class="bi-pencil me-1"></i></th>
-         </tr>
-         </thead>
-         <tbody>
-         <tr *ngFor="let car of carDetails | carFilter: filterText" routerLink="/cars/detail/{{ car.id }}">
-            <td class="text-center fw-bold">{{ car.id }}</td>
-            <td>{{ car.brandName }} {{ car.description }}</td>
-            <td>{{ car.colorName }}</td>
-            <td>{{ car.modelYear }}</td>
-            <td>{{ car.dailyPrice }}</td>
-            <td class="text-center">
-               <button class="btn btn-sm btn-primary"
-                       routerLink="/cars/update/{{ car.id }}">
-                  <i class="bi-pencil me-1"></i>
-               </button>
-            </td>
-         </tr>
-         </tbody>
-      </table>
+      <div class="table-responsive">
+         <table class="table table-hover table-striped border">
+            <thead>
+            <tr>
+               <th class="text-center" style="width: 50px">#</th>
+               <th>Marka</th>
+               <th>Renk</th>
+               <th>Model Yılı</th>
+               <th>Günlük Ücret</th>
+               <th>F.P</th>
+               <th class="text-center"><i class="bi-pencil me-1"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let car of carDetails | carFilter: filterText" routerLink="/cars/detail/{{ car.id }}">
+               <td class="text-center fw-bold">{{ car.id }}</td>
+               <td>{{ car.brandName }} {{ car.description }}</td>
+               <td>{{ car.colorName }}</td>
+               <td>{{ car.modelYear }}</td>
+               <td>{{ car.dailyPrice | currency: '₺ '}}</td>
+               <td>{{ car.findexPoint }}</td>
+               <td class="text-center">
+                  <button class="btn btn-sm btn-primary"
+                          routerLink="/cars/update/{{ car.id }}">
+                     <i class="bi-pencil me-1"></i>
+                  </button>
+               </td>
+            </tr>
+            </tbody>
+         </table>
+      </div>
    </div>
 
    <div class="col-lg-3">

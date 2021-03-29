@@ -20,9 +20,22 @@
 .btn-group .dropdown-menu .dropdown-item {
    cursor: pointer;
    color: #EEEEEE;
-   /*transition: all .3s;*/
 }
 
 .btn-group .dropdown-menu .dropdown-item:hover {
    color: #6C757D;
+}
+
+.btn-group .dropdown-menu .dropdown-item:focus, .dropdown-item:active {
+   background: #DDDDDD;
+   outline: 0;
+}
+
+.cursor-none {
+   cursor: default !important;
+}
+
+.cursor-none:hover {
+   color: #EEEEEE !important;
+   background-color: #6C757D;
 }

@@ -5,5 +5,6 @@ export interface Customer {
    lastName: string
    email: string
    companyName: string
-   password: string | null
+   password: string
+   findexPoint: number
 }

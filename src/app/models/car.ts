@@ -5,4 +5,5 @@ export interface Car {
    description: string
    modelYear: number
    dailyPrice: number
+   findexPoint: number
 }

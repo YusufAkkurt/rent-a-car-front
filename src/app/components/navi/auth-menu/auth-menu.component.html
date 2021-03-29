@@ -8,19 +8,24 @@
    </button>
 </div>
 
-<div *ngIf="isAuth()">
-   <div class="btn-group" *ngIf="getCurrentCustomer()">
+<div *ngIf="isAuth() && getCurrentCustomer()">
+   <div class="btn-group d-grid">
       <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
          <i class="bi-person-circle me-1"></i>
          {{ getCurrentCustomer().firstName }} {{ getCurrentCustomer().lastName }}
       </button>
 
       <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-         <div class="dropdown-item" routerLink="/auth/profile">
-            <i class="bi-pencil me-1"></i> Profili Düzenle
+         <div class="dropdown-item cursor-none">
+            <i class="bi-check2 me-1"></i>
+            {{ getCurrentCustomer().findexPoint }} Findex Puanı
          </div>
 
          <hr class="dropdown-divider">
+
+         <div class="dropdown-item" routerLink="/auth/profile">
+            <i class="bi-pencil me-1"></i> Profili Düzenle
+         </div>
 
          <div class="dropdown-item" (click)="logout()">
             <i class="bi-box-arrow-right me-1"></i> Çıkış Yap

@@ -7,4 +7,5 @@ export interface CarDetail {
    colorName: string
    modelYear: number
    dailyPrice: number
+   findexPoint: number
 }
