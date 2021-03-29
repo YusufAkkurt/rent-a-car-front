@@ -1,4 +1,7 @@
-# RentACar
+# Rent A Car
+
+![rent-a-car-logo](https://user-images.githubusercontent.com/56835547/112905490-2d83d800-90f3-11eb-9269-432f097e2be5.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
