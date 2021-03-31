@@ -31,6 +31,8 @@ Kurumsal mimari yapısı kullanılarak  **Clean Code** ile **SOLID** kuralları 
 - Services
 - Custom pipes
 - Interceptor
+  - Auth: Http isteklerinde, Access Token'ı gönderiyor
+  - Expiration: Access Token'in süresi dolduğunda, oturum bilgilerini silip, giriş sayfasına yönlendiriyor
 - Bootsrat v5 Beta 2
 - Bootsrap Icons v1.4.0
 
