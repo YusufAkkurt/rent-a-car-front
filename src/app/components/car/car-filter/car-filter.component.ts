@@ -24,6 +24,8 @@ export class CarFilterComponent implements OnInit {
    }
 
    ngOnInit(): void {
+      this.brandFilter = Number(this.activatedRoute.snapshot.paramMap.get('brandId'));
+      this.colorFilter = Number(this.activatedRoute.snapshot.paramMap.get('colorId'));
       this.getBrands();
       this.getColors();
    }
@@ -38,15 +40,6 @@ export class CarFilterComponent implements OnInit {
       this.colorService.getColors().subscribe(response => {
          this.colors = response.data;
       });
-   }
-
-   setFilter(){
-      this.activatedRoute.params.subscribe(param => {
-         if (param["filter"]){
-            this.brandFilter = param["brandId"];
-            this.colorFilter = param["colorId"];
-         }
-      })
    }
 
    clearFilter(){
