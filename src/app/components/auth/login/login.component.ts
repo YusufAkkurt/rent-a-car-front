@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
 
    loginForm: FormGroup;
    customer: Customer;
+   currentCustomerEmail: string = '';
 
    constructor(private formBuilder: FormBuilder,
                private toastrService: ToastrService,
@@ -28,12 +29,13 @@ export class LoginComponent implements OnInit {
    }
 
    ngOnInit(): void {
+      this.setCurrentCustomerEmail();
       this.createLoginForm();
    }
 
    createLoginForm() {
       this.loginForm = this.formBuilder.group({
-         email: ['', [Validators.required, Validators.email]],
+         email: [this.currentCustomerEmail, [Validators.required, Validators.email]],
          password: ['', Validators.required]
       });
    }
@@ -48,7 +50,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.login(loginModel).subscribe(responseSuccess => {
          this.toastrService.success(responseSuccess.message, 'Başarılı');
-         this.localStorageService.setToken(responseSuccess.data.token);
+         this.localStorageService.setToken(responseSuccess.data);
          this.getCustomerByEmail(loginModel.email);
 
          return this.router.navigate(['/cars']);
@@ -69,5 +71,11 @@ export class LoginComponent implements OnInit {
 
    getYear() {
       return new Date().getFullYear();
+   }
+
+   setCurrentCustomerEmail() {
+      return this.localStorageService.getCurrentCustomer()
+         ? this.currentCustomerEmail = this.localStorageService.getCurrentCustomer().email
+         : null;
    }
 }

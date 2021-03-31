@@ -10,7 +10,7 @@
 
             <form [formGroup]="loginForm" (ngSubmit)="login()">
                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="email" placeholder="email" formControlName="email">
+                  <input type="email" class="form-control" [readonly]="setCurrentCustomerEmail()" id="email" placeholder="email" formControlName="email">
                   <label for="email">E-Posta Adresiniz</label>
                </div>
 

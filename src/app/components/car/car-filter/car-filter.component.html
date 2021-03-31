@@ -1,5 +1,5 @@
 <div class="mb-3">
-   <select class="form-control rounded-0" [(ngModel)]="brandFilter">
+   <select class="form-select rounded-0" [(ngModel)]="brandFilter">
       <option value="0">- - Marka Seçiniz - -</option>
 
       <option *ngFor="let brand of brands" value="{{ brand.id }}">
@@ -9,7 +9,7 @@
 </div>
 
 <div class="mb-3">
-   <select class="form-control rounded-0" [(ngModel)]="colorFilter">
+   <select class="form-select rounded-0" [(ngModel)]="colorFilter">
       <option value="0">- - Renk Seçiniz - -</option>
 
       <option *ngFor="let color of colors" value="{{ color.id }}">

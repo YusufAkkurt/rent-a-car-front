@@ -33,6 +33,7 @@ import { ProfileComponent } from './components/auth/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CarRentComponent } from './components/car/car-rent/car-rent.component';
 import { CardSavedComponent } from './components/card/card-saved/card-saved.component';
+import { ExpirationInterceptor } from './interceptors/expiration.interceptor';
 
 @NgModule({
    declarations: [
@@ -75,7 +76,8 @@ import { CardSavedComponent } from './components/card/card-saved/card-saved.comp
    ],
    providers: [
       DatePipe,
-      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+      { provide: HTTP_INTERCEPTORS, useClass: ExpirationInterceptor, multi: true }
    ],
    bootstrap: [AppComponent]
 })

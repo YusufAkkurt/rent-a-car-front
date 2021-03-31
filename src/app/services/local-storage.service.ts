@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../models/entities/customer';
+import { TokenModel } from '../models/tokenModel';
 
 @Injectable({
    providedIn: 'root'
@@ -13,12 +14,12 @@ export class LocalStorageService {
    constructor() {
    }
 
-   setToken(tokenValue: string) {
-      localStorage.setItem(this.tokenKey, tokenValue);
+   setToken(tokenValue: TokenModel) {
+      localStorage.setItem(this.tokenKey, JSON.stringify(tokenValue));
    }
 
-   getToken() {
-      return localStorage.getItem(this.tokenKey);
+   getToken(): TokenModel {
+      return JSON.parse(localStorage.getItem(this.tokenKey));
    }
 
    removeToken() {
