@@ -36,8 +36,8 @@ Kurumsal mimari yapısı kullanılarak  **Clean Code** ile **SOLID** kuralları 
 - Bootsrat v5 Beta 2
 - Bootsrap Icons v1.4.0
 
-### Anasayfadan Görüntü
-![image](https://user-images.githubusercontent.com/56835547/112908096-91a89b00-90f7-11eb-9033-ae6c317d7d51.png)
+### Projeden Görüntüler
+![rent-a-car-v1](https://user-images.githubusercontent.com/56835547/113221045-f812f200-928c-11eb-913a-ee1deaac98f8.gif)
 
 ------------
 
