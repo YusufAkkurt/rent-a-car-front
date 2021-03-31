@@ -6,7 +6,8 @@ Kurumsal mimari yapısı kullanılarak  **Clean Code** ile **SOLID** kuralları 
 
 #### Bağlı Olduğu Restful API: [Rent A Car BackEnd](https://github.com/YusufAkkurt/RentACar "Rent A Car BackEnd")
 
-![rent-a-car-v1](https://user-images.githubusercontent.com/56835547/113221268-5d66e300-928d-11eb-9725-8c3856b18981.gif)
+### Projeden Görüntüler
+![rent-a-car-v1](https://user-images.githubusercontent.com/56835547/113222529-e97a0a00-928f-11eb-9b0d-ea69e608896d.gif)
 
 ### Projenin İçeriği
 - CRUD Operasyonlar
@@ -35,9 +36,6 @@ Kurumsal mimari yapısı kullanılarak  **Clean Code** ile **SOLID** kuralları 
   - Expiration: Access Token'in süresi dolduğunda, oturum bilgilerini silip, giriş sayfasına yönlendiriyor
 - Bootsrat v5 Beta 2
 - Bootsrap Icons v1.4.0
-
-### Projeden Görüntüler
-![rent-a-car-v1](https://user-images.githubusercontent.com/56835547/113221045-f812f200-928c-11eb-913a-ee1deaac98f8.gif)
 
 ------------
 
