@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CardService } from '../../../services/card.service';
-import { Card } from '../../../models/card';
+import { Card } from '../../../models/entities/card';
 import { LocalStorageService } from '../../../services/local-storage.service';
-import { Customer } from '../../../models/customer';
+import { Customer } from '../../../models/entities/customer';
 
 @Component({
    selector: 'app-card-saved',

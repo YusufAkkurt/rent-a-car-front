@@ -3,7 +3,7 @@ import { AuthService } from '../../../services/auth.service';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { Customer } from '../../../models/customer';
+import { Customer } from '../../../models/entities/customer';
 
 @Component({
    selector: 'app-auth-menu',

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Car } from '../../../models/car';
+import { Car } from '../../../models/entities/car';
 import { CarService } from '../../../services/car.service';
 import { BrandService } from '../../../services/brand.service';
 import { ColorService } from '../../../services/color.service';
-import { Brand } from '../../../models/brand';
-import { Color } from '../../../models/color';
+import { Brand } from '../../../models/entities/brand';
+import { Color } from '../../../models/entities/color';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

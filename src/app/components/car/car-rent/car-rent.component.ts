@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Rental } from '../../../models/rental';
+import { Rental } from '../../../models/entities/rental';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';

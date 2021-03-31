@@ -6,7 +6,7 @@ import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import { CustomerService } from '../../../services/customer.service';
-import { Customer } from '../../../models/customer';
+import { Customer } from '../../../models/entities/customer';
 
 @Component({
    selector: 'app-register',

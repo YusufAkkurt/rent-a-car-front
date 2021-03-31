@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../../../models/customer';
+import { Customer } from '../../../models/entities/customer';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import { ToastrService } from 'ngx-toastr';

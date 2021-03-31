@@ -1,10 +1,9 @@
-export interface RentDetail {
-   id: number
+import { Rental } from '../entities/rental';
+
+export interface RentDetail extends Rental {
    carBrand: string
    carModel: string
    customerFirstName: string
    customerLastName: string
    companyName: string
-   rentDate: Date
-   returnDate: Date
 }

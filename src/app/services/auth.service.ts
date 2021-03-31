@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../models/loginModel';
 import { Observable } from 'rxjs';
-import { SingleResponseModel } from '../models/singleResponseModel';
+import { SingleResponseModel } from '../models/responses/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { HttpClient } from '@angular/common/http';
 import { RegisterModel } from '../models/registerModel';
 import { LocalStorageService } from './local-storage.service';
-import { Customer } from '../models/customer';
+import { Customer } from '../models/entities/customer';
 
 @Injectable({
    providedIn: 'root'

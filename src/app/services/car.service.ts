@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ListResponseModel } from '../models/listResponseModel';
-import { CarDetail } from '../models/carDetail';
-import { SingleResponseModel } from '../models/singleResponseModel';
-import { ResponseModel } from '../models/responseModel';
-import { Car } from '../models/car';
+import { ListResponseModel } from '../models/responses/listResponseModel';
+import { CarDetail } from '../models/details/carDetail';
+import { SingleResponseModel } from '../models/responses/singleResponseModel';
+import { ResponseModel } from '../models/responses/responseModel';
+import { Car } from '../models/entities/car';
 
 @Injectable({
    providedIn: 'root'

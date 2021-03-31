@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ColorService } from '../../../services/color.service';
 import { BrandService } from '../../../services/brand.service';
-import { Brand } from '../../../models/brand';
-import { Color } from '../../../models/color';
+import { Brand } from '../../../models/entities/brand';
+import { Color } from '../../../models/entities/color';
 import { ToastrService } from 'ngx-toastr';
 import { CarService } from '../../../services/car.service';
-import { Car } from '../../../models/car';
+import { Car } from '../../../models/entities/car';
 
 @Component({
    selector: 'app-car-add',

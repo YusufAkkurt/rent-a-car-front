@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from '../../models/card';
+import { Card } from '../../models/entities/card';
 import { CardService } from '../../services/card.service';
 import { RentalService } from '../../services/rental.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Rental } from '../../models/rental';
+import { Rental } from '../../models/entities/rental';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocalStorageService } from '../../services/local-storage.service';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from '../../services/car.service';
-import { CarDetail } from '../../models/carDetail';
+import { CarDetail } from '../../models/details/carDetail';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

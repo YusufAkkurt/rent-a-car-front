@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { ListResponseModel } from '../models/listResponseModel';
-import { RentDetail } from '../models/rentDetail';
-import { ResponseModel } from '../models/responseModel';
-import { Rental } from '../models/rental';
+import { ListResponseModel } from '../models/responses/listResponseModel';
+import { RentDetail } from '../models/details/rentDetail';
+import { ResponseModel } from '../models/responses/responseModel';
+import { Rental } from '../models/entities/rental';
 
 @Injectable({
    providedIn: 'root'

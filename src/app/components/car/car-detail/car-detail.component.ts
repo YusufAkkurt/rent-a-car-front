@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from '../../../services/car.service';
-import { CarDetail } from '../../../models/carDetail';
+import { CarDetail } from '../../../models/details/carDetail';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CarImageService } from '../../../services/car-image.service';
-import { CarImage } from '../../../models/carImage';
+import { CarImage } from '../../../models/entities/carImage';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({

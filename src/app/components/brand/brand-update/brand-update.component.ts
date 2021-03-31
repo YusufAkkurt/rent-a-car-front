@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Brand } from '../../../models/brand';
+import { Brand } from '../../../models/entities/brand';
 import { BrandService } from '../../../services/brand.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -13,9 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 
 export class BrandUpdateComponent implements OnInit {
 
-   // @ts-ignore
    brandUpdateForm: FormGroup;
-   brand!: Brand;
+   brand: Brand;
 
    constructor(private formBuilder: FormBuilder,
                private brandService: BrandService,
