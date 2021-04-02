@@ -24,8 +24,8 @@ export class ExpirationInterceptor implements HttpInterceptor {
          return next.handle(request);
       }
 
-      let expirationDate = new Date(tokenModel.expiration).getMinutes();
-      let currentDate = new Date().getMinutes();
+      let expirationDate = new Date(tokenModel.expiration);
+      let currentDate = new Date();
 
       if (Number(expirationDate) <= Number(currentDate)) {
          this.localstorageService.removeToken();

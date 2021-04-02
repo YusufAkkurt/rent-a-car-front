@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class CarComponent implements OnInit {
 
-   carDetail: CarDetail | undefined;
+   carDetail: CarDetail;
    carDetails: CarDetail[] = [];
    filterText: string = '';
 
@@ -23,27 +23,27 @@ export class CarComponent implements OnInit {
    }
 
    getCars() {
-      this.carService.getCars().subscribe((response) => {
+      this.carService.getCarDetail().subscribe((response) => {
          this.carDetails = response.data;
       });
    }
 
-   getCarsByBrandId(brandId: number) {
-      this.carService.getCarsByBrandId(brandId).subscribe(response => {
-         this.carDetails = response.data;
+   getCarDetailsByBrandId(brandId: number) {
+      this.carService.getCarDetail().subscribe(response => {
+         this.carDetails = response.data.filter(car => car.brandId == brandId);
       });
    }
 
-   getCarsByColorId(colorId: number) {
-      this.carService.getCarsByColorId(colorId).subscribe(response => {
-         this.carDetails = response.data;
+   getCarDetailsByColorId(colorId: number) {
+      this.carService.getCarDetail().subscribe(response => {
+         this.carDetails = response.data.filter(car => car.colorId == colorId);
       });
    }
 
    getCarsByBrandIdAndColorId(brandId: number, colorId: number) {
-      this.carService.getCarsByBrandId(brandId).subscribe(response => {
-         this.carDetails = response.data.filter((carDetail: CarDetail) =>
-            carDetail.colorId == colorId
+      this.carService.getCarDetail().subscribe(response => {
+         this.carDetails = response.data.filter(car =>
+            car.brandId == brandId && car.colorId == colorId
          );
       });
    }
@@ -51,9 +51,9 @@ export class CarComponent implements OnInit {
    getCarsByFiltered() {
       this.activatedRoute.params.subscribe(param => {
          if (param['brandId'] > 0 && param['colorId'] == 0) {
-            return this.getCarsByBrandId(param['brandId']);
+            return this.getCarDetailsByBrandId(param['brandId']);
          } else if (param['colorId'] > 0 && param['brandId'] == 0) {
-            return this.getCarsByColorId(param['colorId']);
+            return this.getCarDetailsByColorId(param['colorId']);
          } else if (param['brandId'] > 0 && param['colorId'] > 0) {
             return this.getCarsByBrandIdAndColorId(param['brandId'], param['colorId']);
          }

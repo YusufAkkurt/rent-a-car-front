@@ -17,8 +17,8 @@ import { ToastrService } from 'ngx-toastr';
 
 export class CarUpdateComponent implements OnInit {
 
-   carUpdateForm!: FormGroup;
-   car!: Car;
+   carUpdateForm: FormGroup;
+   car: Car;
    brands: Brand[] = [];
    colors: Color[] = [];
 
@@ -65,7 +65,8 @@ export class CarUpdateComponent implements OnInit {
          colorId: [this.car.colorId, Validators.required],
          dailyPrice: [this.car.dailyPrice, Validators.required],
          modelYear: [this.car.modelYear, Validators.required],
-         description: [this.car.description, Validators.required]
+         description: [this.car.description, Validators.required],
+         findexPoint: [this.car.findexPoint, Validators.required]
       });
    }
 

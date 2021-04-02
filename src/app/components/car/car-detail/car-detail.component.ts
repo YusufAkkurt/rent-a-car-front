@@ -31,14 +31,14 @@ export class CarDetailComponent implements OnInit {
       this.activatedRoute.params.subscribe((params) => {
          if (params['carId']) {
             this.getPhotosByCarId(params['carId']);
-            this.getCarById(params['carId']);
+            this.getCarDetailById(params['carId']);
          }
       });
    }
 
-   getCarById(id: number) {
-      this.carService.getCarById(id).subscribe((response) => {
-         this.carDetail = response.data;
+   getCarDetailById(id: number) {
+      this.carService.getCarDetail().subscribe(response => {
+         this.carDetail =  response.data.find(car => car.id == id);
       });
    }
 
