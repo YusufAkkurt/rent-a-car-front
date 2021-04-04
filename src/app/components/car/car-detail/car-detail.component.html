@@ -1,18 +1,18 @@
 <div class="row mt-4">
    <div class="col-lg-6">
-      <div id="indicators" class="carousel slide" data-bs-ride="carousel">
+      <div id="indicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
          <div class="carousel-inner">
             <div *ngFor="let carImage of carImages" [class]="getCurrentSliderImageClass(carImage)">
-               <img src="{{ imageBaseUrl + carImage.imagePath }}" class="d-block w-100">
+               <img src="{{ imageBaseUrl + carImage.imagePath }}" class="d-block img-fluid">
             </div>
          </div>
 
-         <button class="carousel-control-prev" data-bs-target="#indicators" data-bs-slide="prev">
-            <span class="bi-arrow-left" style="font-size: 25px;"></span>
+         <button *ngIf="carImages.length > 1" class="carousel-control-prev" data-bs-target="#indicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
          </button>
-         <button class="carousel-control-next" data-bs-target="#indicators" data-bs-slide="next">
-            <span class="bi-arrow-right" style="font-size: 25px;"></span>
+         <button *ngIf="carImages.length > 1" class="carousel-control-next" data-bs-target="#indicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
          </button>
 
       </div>
@@ -31,6 +31,12 @@
 
       <div *ngIf="isAuthenticate()">
          <app-car-rent></app-car-rent>
+      </div>
+
+      <div *ngIf="!isAuthenticate()">
+         <div class="alert alert-primary text-center lead fw-normal">
+            Araba kiralama işlemi için önce giriş yapın
+         </div>
       </div>
 
    </div>
