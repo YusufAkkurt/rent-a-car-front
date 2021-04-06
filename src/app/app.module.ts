@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NaviComponent } from './components/navi/navi.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { ColorComponent } from './components/color/color.component';
 import { BrandComponent } from './components/brand/brand.component';
@@ -28,17 +27,19 @@ import { ColorUpdateComponent } from './components/color/color-update/color-upda
 import { CarUpdateComponent } from './components/car/car-update/car-update.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { AuthMenuComponent } from './components/navi/auth-menu/auth-menu.component';
+import { AuthMenuComponent } from './components/master/navbar/auth-menu/auth-menu.component';
 import { ProfileComponent } from './components/auth/profile/profile.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { CarRentComponent } from './components/car/car-rent/car-rent.component';
 import { CardSavedComponent } from './components/card/card-saved/card-saved.component';
 import { ExpirationInterceptor } from './interceptors/expiration.interceptor';
+import { MasterComponent } from './components/master/master.component';
+import { FooterComponent } from './components/master/footer/footer.component';
+import { NavbarComponent } from './components/master/navbar/navbar.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      NaviComponent,
       CustomerComponent,
       ColorComponent,
       BrandComponent,
@@ -61,7 +62,10 @@ import { ExpirationInterceptor } from './interceptors/expiration.interceptor';
       AuthMenuComponent,
       ProfileComponent,
       CarRentComponent,
-      CardSavedComponent
+      CardSavedComponent,
+      MasterComponent,
+      FooterComponent,
+      NavbarComponent
    ],
    imports: [
       BrowserModule,

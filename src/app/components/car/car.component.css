@@ -22,3 +22,18 @@ tr:focus {
    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .2);
 }
 
+.card{
+   border-radius: 0;
+   cursor: pointer;
+   outline: 0;
+   transition: all .3s;
+}
+
+.card:hover{
+   border-color: #6C757D;
+   box-shadow: 0 0 10px 3px rgba(0,0,0, .2);
+}
+
+.card-img-top {
+   border-radius: 0;
+}

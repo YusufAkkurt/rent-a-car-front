@@ -14,6 +14,7 @@ export class CarComponent implements OnInit {
    carDetail: CarDetail;
    carDetails: CarDetail[] = [];
    filterText: string = '';
+   apiUrl = "https://localhost:44371/"
 
    constructor(private carService: CarService, private activatedRoute: ActivatedRoute) {
    }
