@@ -4,7 +4,7 @@
              placeholder="Araba Ara..." autocomplete="off">
 
       <div class="row">
-         <div class="col-lg-4 col-xxl-3 mb-3" *ngFor="let car of carDetails | carFilter: filterText">
+         <div class="col-lg-4 col-xxl-3 mb-4" *ngFor="let car of carDetails | carFilter: filterText">
             <div tabindex="0" class="card" [routerLink]="'/cars/detail/' + car.id">
                <img [src]="apiUrl + car.carImages[0].imagePath" class="card-img-top" [alt]="car.brandName + ' ' + car.description">
 
@@ -27,6 +27,9 @@
          </div>
       </div>
 
+      <div *ngIf="carDetails.length == 0" class="alert alert-primary text-center lead fw-normal py-4">
+         Bu bilgilere sahip hiç araba kaydı <b>bulunamadı</b>
+      </div>
    </div>
 
    <div class="col-lg-3">
