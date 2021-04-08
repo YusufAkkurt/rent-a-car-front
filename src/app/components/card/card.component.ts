@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Rental } from '../../models/entities/rental';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
    selector: 'app-card',
@@ -26,7 +27,8 @@ export class CardComponent implements OnInit {
                private localStorageService: LocalStorageService,
                private toastrService: ToastrService,
                private router: Router,
-               private cardService: CardService) {
+               private cardService: CardService,
+               private customerService: CustomerService) {
    }
 
    ngOnInit(): void {
@@ -61,9 +63,19 @@ export class CardComponent implements OnInit {
       return this.addRental(this.rentedCar);
    }
 
+   updateCurrentCustomerFindexPoint() {
+      let currentCustomer = this.localStorageService.getCurrentCustomer();
+
+      this.customerService.getCustomerByEmail(currentCustomer.email).subscribe(response => {
+         this.localStorageService.setCurrentCustomer(response.data);
+      });
+   }
+
    addRental(rental: Rental) {
       this.rentalService.add(rental).subscribe(responseSuccess => {
          this.toastrService.success(responseSuccess.message, 'Başarılı');
+         this.updateCurrentCustomerFindexPoint();
+
          return this.router.navigate(['']);
       }, responseError => {
          console.log(responseError);
@@ -84,7 +96,7 @@ export class CardComponent implements OnInit {
 
    addCard(card: Card) {
       this.cardService.add(card).subscribe(responseSuccess => {
-         return responseSuccess.success
+         return responseSuccess.success;
       }, responseError => {
          if (responseError.error.ValidationErrors.length > 0) {
             for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
