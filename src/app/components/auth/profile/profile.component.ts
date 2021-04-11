@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit {
          lastName: [this.customer.lastName, Validators.required],
          companyName: [this.customer.companyName],
          email: [this.customer.email, [Validators.required, Validators.email]],
+         findexPoint: [this.customer.findexPoint, Validators.required],
          password: [''],
          confirmPassword: ['']
       });

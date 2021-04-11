@@ -73,10 +73,9 @@ export class CarUpdateComponent implements OnInit {
    update() {
       let car: Car = Object.assign({}, this.carUpdateForm.value);
 
-      car.brandId = Number(car.brandId);
-      car.colorId = Number(car.colorId);
       car.modelYear = Number(car.modelYear);
       car.dailyPrice = Number(car.dailyPrice);
+      car.findexPoint = Number(car.findexPoint);
 
       if (!this.carUpdateForm.valid) {
          this.toastrService.warning('Lütfen boş bilgi bırakmayın', 'Dikkat');

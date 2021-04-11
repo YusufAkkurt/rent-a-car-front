@@ -4,13 +4,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ResponseModel } from '../models/responses/responseModel';
 import { ListResponseModel } from '../models/responses/listResponseModel';
+import { environment } from '../../environments/environment';
 
 @Injectable({
    providedIn: 'root'
 })
+
 export class CardService {
 
-   private apiUrl = 'https://localhost:44371/api/cards/';
+   private apiUrl = environment.apiUrl + 'cards/';
 
    constructor(private httpClient: HttpClient) {
    }

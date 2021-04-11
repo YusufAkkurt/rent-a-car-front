@@ -36,6 +36,8 @@ import { ExpirationInterceptor } from './interceptors/expiration.interceptor';
 import { MasterComponent } from './components/master/master.component';
 import { FooterComponent } from './components/master/footer/footer.component';
 import { NavbarComponent } from './components/master/navbar/navbar.component';
+import { CheckNumberDirective } from './directives/check-number.directive';
+import { CheckDecimalDirective } from './directives/check-decimal.directive';
 
 @NgModule({
    declarations: [
@@ -65,7 +67,9 @@ import { NavbarComponent } from './components/master/navbar/navbar.component';
       CardSavedComponent,
       MasterComponent,
       FooterComponent,
-      NavbarComponent
+      NavbarComponent,
+      CheckNumberDirective,
+      CheckDecimalDirective
    ],
    imports: [
       BrowserModule,

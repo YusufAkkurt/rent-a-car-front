@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import { CustomerService } from '../../../services/customer.service';
 import { Customer } from '../../../models/entities/customer';
+import { environment } from '../../../../environments/environment';
 
 @Component({
    selector: 'app-register',
@@ -38,7 +39,8 @@ export class RegisterComponent implements OnInit {
          companyName: [''],
          email: ['', [Validators.required, Validators.email]],
          password: ['', Validators.required],
-         confirmPassword: ['', Validators.required]
+         confirmPassword: ['', Validators.required],
+         findexPoint: [environment.defaultFindexPoint, Validators.required],
       });
    }
 

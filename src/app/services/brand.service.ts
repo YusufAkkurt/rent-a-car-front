@@ -5,6 +5,7 @@ import { ListResponseModel } from '../models/responses/listResponseModel';
 import { Brand } from '../models/entities/brand';
 import { ResponseModel } from '../models/responses/responseModel';
 import { SingleResponseModel } from '../models/responses/singleResponseModel';
+import { environment } from '../../environments/environment';
 
 @Injectable({
    providedIn: 'root'
@@ -12,7 +13,7 @@ import { SingleResponseModel } from '../models/responses/singleResponseModel';
 
 export class BrandService {
 
-   private apiUrl: string = 'https://localhost:44371/api/brands/';
+   private apiUrl = environment.apiUrl + 'brands/';
 
    constructor(private httpClient: HttpClient) {
    }

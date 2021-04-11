@@ -5,6 +5,7 @@ import { ListResponseModel } from '../models/responses/listResponseModel';
 import { Color } from '../models/entities/color';
 import { ResponseModel } from '../models/responses/responseModel';
 import { SingleResponseModel } from '../models/responses/singleResponseModel';
+import { environment } from '../../environments/environment';
 
 @Injectable({
    providedIn: 'root'
@@ -12,7 +13,7 @@ import { SingleResponseModel } from '../models/responses/singleResponseModel';
 
 export class ColorService {
 
-   private apiUrl: string = 'https://localhost:44371/api/colors/';
+   private apiUrl = environment.apiUrl + 'colors/';
 
    constructor(private httpClient: HttpClient) {
    }

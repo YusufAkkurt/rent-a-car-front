@@ -5,6 +5,7 @@ import { ListResponseModel } from '../models/responses/listResponseModel';
 import { Customer } from '../models/entities/customer';
 import { SingleResponseModel } from '../models/responses/singleResponseModel';
 import { ResponseModel } from '../models/responses/responseModel';
+import { environment } from '../../environments/environment';
 
 @Injectable({
    providedIn: 'root'
@@ -12,7 +13,7 @@ import { ResponseModel } from '../models/responses/responseModel';
 
 export class CustomerService {
 
-   private apiUrl: string = 'https://localhost:44371/api/customers/';
+   private apiUrl = environment.apiUrl + 'customers/';
 
    constructor(private httpClient: HttpClient) {
    }

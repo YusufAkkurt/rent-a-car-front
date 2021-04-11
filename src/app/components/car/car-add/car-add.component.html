@@ -10,9 +10,9 @@
 
                <div class="form-floating mb-3">
                   <select class="form-select" id="brands" formControlName="brandId">
-                     <option value="">-- Marka Seçiniz --</option>
+                     <option value=0>-- Marka Seçiniz --</option>
 
-                     <option *ngFor="let brand of brands" [value]="brand.id">
+                     <option *ngFor="let brand of brands" [ngValue]="brand.id">
                         {{ brand.name }}
                      </option>
                   </select>
@@ -21,9 +21,9 @@
 
                <div class="form-floating mb-3">
                   <select class="form-select" id="colors" formControlName="colorId">
-                     <option value="">-- Renk Seçiniz --</option>
+                     <option value=0>-- Renk Seçiniz --</option>
 
-                     <option *ngFor="let color of colors" [value]="color.id">
+                     <option *ngFor="let color of colors" [ngValue]="color.id">
                         {{ color.name }}
                      </option>
                   </select>
@@ -31,25 +31,25 @@
                </div>
 
                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="description" placeholder="description"
+                  <input class="form-control" id="description" placeholder="description"
                          formControlName="description">
                   <label for="description">Model Adı / Açıklama</label>
                </div>
 
                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="modelYear" placeholder="modelYear"
+                  <input class="form-control" appCheckNumber id="modelYear" placeholder="modelYear"
                          formControlName="modelYear">
                   <label for="modelYear">Model Yılı</label>
                </div>
 
                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="dailyPrice" placeholder="dailyPrice"
+                  <input class="form-control" id="dailyPrice" appCheckDecimal placeholder="dailyPrice"
                          formControlName="dailyPrice">
                   <label for="dailyPrice">Günlük Ücret - ₺</label>
                </div>
 
                <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="findexPoint" placeholder="findexPoint"
+                  <input class="form-control" appCheckNumber id="findexPoint" placeholder="findexPoint"
                          formControlName="findexPoint">
                   <label for="findexPoint">Findeks Puanı</label>
                </div>

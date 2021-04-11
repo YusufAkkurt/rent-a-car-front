@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
    selector: 'app-footer',
@@ -9,9 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class FooterComponent implements OnInit {
 
-   footerTitle = 'Rent A Car';
+   footerTitle: string = environment.projectName
 
-   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+   constructor() {
    }
 
    ngOnInit(): void {

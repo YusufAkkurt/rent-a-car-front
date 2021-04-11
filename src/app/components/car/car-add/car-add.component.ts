@@ -35,8 +35,8 @@ export class CarAddComponent implements OnInit {
 
    createCarAddForm() {
       this.carAddForm = this.formBuilder.group({
-         brandId: ['', Validators.required],
-         colorId: ['', Validators.required],
+         brandId: [0, Validators.required],
+         colorId: [0, Validators.required],
          modelYear: ['', Validators.required],
          dailyPrice: ['', Validators.required],
          description: ['', Validators.required],
@@ -63,10 +63,9 @@ export class CarAddComponent implements OnInit {
    add() {
       let car: Car = Object.assign({}, this.carAddForm.value);
 
-      car.brandId = Number(car.brandId);
-      car.colorId = Number(car.colorId);
       car.modelYear = Number(car.modelYear);
       car.dailyPrice = Number(car.dailyPrice);
+      car.findexPoint = Number(car.findexPoint);
 
       if (!this.carAddForm.valid) {
          this.toastrService.warning('Lütfen boş bilgi bırakmayın', 'Dikkat');
@@ -75,8 +74,8 @@ export class CarAddComponent implements OnInit {
 
       this.carService.add(car).subscribe(responseSuccess => {
          this.carAddForm.reset();
-         this.carAddForm.get('brandId').setValue('');
-         this.carAddForm.get('colorId').setValue('');
+         this.carAddForm.get('brandId').setValue(0);
+         this.carAddForm.get('colorId').setValue(0);
 
          return this.toastrService.success(responseSuccess.message, 'Başarılı');
       }, responseError => {

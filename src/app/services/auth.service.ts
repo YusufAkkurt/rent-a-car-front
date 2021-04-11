@@ -7,13 +7,15 @@ import { HttpClient } from '@angular/common/http';
 import { RegisterModel } from '../models/registerModel';
 import { LocalStorageService } from './local-storage.service';
 import { Customer } from '../models/entities/customer';
+import { environment } from '../../environments/environment';
 
 @Injectable({
    providedIn: 'root'
 })
+
 export class AuthService {
 
-   private apiUrl = 'https://localhost:44371/api/auth/';
+   private apiUrl = environment.apiUrl + 'auth/';
 
    constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService) {
    }
