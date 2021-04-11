@@ -7,7 +7,7 @@ Kurumsal mimari yapısı kullanılarak  **Clean Code** ile **SOLID** kuralları 
 #### Bağlı Olduğu Restful API: [Rent A Car BackEnd](https://github.com/YusufAkkurt/RentACar "Rent A Car BackEnd")
 
 ### Projeden Görüntüler
-![rent-a-car-v1](https://user-images.githubusercontent.com/56835547/113222529-e97a0a00-928f-11eb-9b0d-ea69e608896d.gif)
+![rent-a-car-v3](https://user-images.githubusercontent.com/56835547/114316215-45a02200-9b0b-11eb-9faf-8d190d91751c.gif)
 
 ### Projenin İçeriği
 - CRUD Operasyonlar
