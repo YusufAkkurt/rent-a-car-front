@@ -24,9 +24,7 @@
    </div>
 
    <div class="col-lg-3">
-
-      <input type="text" [(ngModel)]="colorFilterText" class="form-control rounded-0 mb-3"
-             placeholder="Renk Ara..." autocomplete="off">
+      <app-text-input [(ngModel)]="colorFilterText" placeHolder="Renk Ara..."></app-text-input>
 
       <div class="d-grid">
          <button class="btn btn-primary rounded-0" routerLink="/colors/add">

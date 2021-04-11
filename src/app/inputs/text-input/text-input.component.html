@@ -1,0 +1,6 @@
+<input class="form-control mb-3"
+       [placeholder]="placeHolder"
+       [value]="value"
+       [disabled]="isDisabled"
+       (input)="onChange( $event )"
+       (blur)="touched()">

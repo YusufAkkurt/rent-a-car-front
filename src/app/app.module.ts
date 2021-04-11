@@ -38,6 +38,7 @@ import { FooterComponent } from './components/master/footer/footer.component';
 import { NavbarComponent } from './components/master/navbar/navbar.component';
 import { CheckNumberDirective } from './directives/check-number.directive';
 import { CheckDecimalDirective } from './directives/check-decimal.directive';
+import { TextInputComponent } from './inputs/text-input/text-input.component';
 
 @NgModule({
    declarations: [
@@ -69,7 +70,8 @@ import { CheckDecimalDirective } from './directives/check-decimal.directive';
       FooterComponent,
       NavbarComponent,
       CheckNumberDirective,
-      CheckDecimalDirective
+      CheckDecimalDirective,
+      TextInputComponent
    ],
    imports: [
       BrowserModule,

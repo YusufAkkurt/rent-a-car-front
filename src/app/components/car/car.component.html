@@ -1,7 +1,7 @@
 <div class="row mt-4">
    <div class="col-lg-9">
-      <input type="text" [(ngModel)]="filterText" class="form-control rounded-0 mb-3"
-             placeholder="Araba Ara..." autocomplete="off">
+
+      <app-text-input [(ngModel)]="filterText" placeHolder="Araba Ara..."></app-text-input>
 
       <div class="row">
          <div class="col-lg-4 col-xxl-3 mb-4" *ngFor="let car of carDetails | carFilter: filterText">

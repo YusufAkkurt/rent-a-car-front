@@ -1,0 +1,9 @@
+input{
+   border-radius: 0;
+}
+
+input:focus {
+   border-color: #0D6EFD;
+   box-shadow: none;
+   border-radius: 0;
+}
