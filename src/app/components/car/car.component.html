@@ -1,6 +1,5 @@
 <div class="row mt-4">
    <div class="col-lg-9">
-
       <app-text-input [(ngModel)]="filterText" placeHolder="Araba Ara..."></app-text-input>
 
       <div class="row">
@@ -13,8 +12,8 @@
                   <hr>
                   <ul class="list-unstyled">
                      <li><b>Renk: </b>{{ car.colorName }}</li>
-                     <li><b>Model Yılıd: </b>{{ car.modelYear }}</li>
-                     <li><b>Günlük Ücret: </b>{{ car.dailyPrice |currency : '₺ '  }}</li>
+                     <li><b>Model Yılı: </b>{{ car.modelYear }}</li>
+                     <li><b>Günlük Ücret: </b>{{ car.dailyPrice | currency : '₺ '  }}</li>
                      <li><b>Findeks Puanı: </b>{{ car.findexPoint }}</li>
                   </ul>
 
